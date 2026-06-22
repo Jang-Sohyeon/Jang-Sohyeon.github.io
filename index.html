@@ -129,7 +129,7 @@
 
     .hero-text { max-width: 760px; }
 
-    .content-block { margin-bottom: 38px; }
+    .content-block { margin-bottom: 24px; }
     .content-block:last-child { margin-bottom: 0; }
 
     .section-label,
@@ -137,7 +137,7 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin: 0 0 22px;
+      margin: 0 0 20px;
       font-size: 1.25rem;
       line-height: 1.2;
       letter-spacing: -0.035em;
@@ -157,7 +157,7 @@
     .intro-text,
     .research-text,
     .section-intro {
-      margin: 0 0 22px;
+      margin: 0 0 18px;
       color: var(--muted);
       font-size: 1rem;
       max-width: 760px;
@@ -166,7 +166,7 @@
 
     .interests-line {
       max-width: 760px;
-      margin: 0 0 18px;
+      margin: 0 0 14px;
       color: var(--text);
       font-size: 0.98rem;
       font-weight: 600;
@@ -175,6 +175,53 @@
     .interests-line strong { color: var(--pine); font-weight: 850; }
 
     section { padding: 58px 0; border-top: 1px solid var(--line); }
+
+    .paper-list {
+      display: grid;
+      gap: 42px;
+      max-width: 900px;
+    }
+
+    .paper-item {
+      padding-bottom: 36px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .paper-item:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .paper-title-ko {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      line-height: 1.45;
+      font-weight: 850;
+      color: var(--text);
+      letter-spacing: -0.02em;
+    }
+
+    .paper-title-en {
+      margin: 0 0 14px;
+      color: var(--pine);
+      font-size: 0.98rem;
+      line-height: 1.5;
+      font-weight: 750;
+    }
+
+    .paper-venue {
+      margin: 0 0 12px;
+      color: var(--text);
+      font-size: 0.92rem;
+      font-weight: 750;
+    }
+
+    .paper-desc {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+      line-height: 1.75;
+    }
 
     .grid-3 {
       display: grid;
@@ -198,34 +245,6 @@
     }
 
     .card p { margin: 0; color: var(--muted); font-size: 0.94rem; }
-
-    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-
-    .tag {
-      display: inline-flex;
-      border-radius: 999px;
-      padding: 5px 10px;
-      background: var(--light);
-      color: var(--pine);
-      font-size: 0.76rem;
-      font-weight: 850;
-    }
-
-    .paper-card { min-height: 390px; display: flex; flex-direction: column; }
-    .paper-meta { margin-bottom: 12px; color: var(--pine); font-size: 0.86rem; font-weight: 850; }
-    .paper-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: auto; padding-top: 20px; }
-
-    .small-button {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 8px 12px;
-      background: #fff;
-      color: var(--pine);
-      font-size: 0.82rem;
-      font-weight: 850;
-    }
-
-    .small-button.disabled { color: #8a8a8a; background: #f8f8f4; }
 
     .gallery-card { padding: 0; overflow: hidden; }
     .gallery-placeholder {
@@ -300,28 +319,26 @@
     <section id="papers">
       <div class="container">
         <h2 class="section-title" data-i18n="papersTitle">Papers</h2>
-        <p class="section-intro" data-i18n="papersIntro">My papers explore camouflaged objects through learning bias analysis, background context, and domain adaptation.</p>
-        <div class="grid-3">
-          <article class="card paper-card">
-            <div class="paper-meta" data-i18n="paper1Meta">KICS Summer Conference, 2026</div>
-            <h3 data-i18n="paper1Title">Learning Bias Analysis in Camouflaged Object Detection via Feature Confusion and Attention Bias</h3>
-            <p data-i18n="paper1Text">This study analyzes the learning bias of camouflaged object detection models, which can easily rely on background cues because object-specific features are weak. It quantifies this bias using feature confusion and attention bias, and examines how it affects detection performance.</p>
-            <div class="tag-row"><span class="tag">Learning Bias</span><span class="tag">Feature Confusion</span><span class="tag">Attention Bias</span></div>
-            <div class="paper-actions"><span class="small-button disabled" data-i18n="pdfComing">PDF coming soon</span><span class="small-button disabled" data-i18n="codeComing">Code coming soon</span></div>
+        <div class="paper-list">
+          <article class="paper-item">
+            <h3 class="paper-title-ko" data-i18n="paper1TitleKo">특징 혼동도와 시선 편향도 기반 위장 객체 학습 편향 분석</h3>
+            <p class="paper-title-en" data-i18n="paper1TitleEn">Learning Bias Analysis in Camouflaged Object Detection via Feature Confusion and Attention Bias</p>
+            <p class="paper-venue" data-i18n="paper1Venue">한국통신학회 하계종합학술발표대회, 2026.06</p>
+            <p class="paper-desc" data-i18n="paper1Text">위장 객체는 배경과 시각적으로 유사해 모델이 객체 고유의 특징보다 배경의 단서에 의존하는 학습 편향이 발생하기 쉽습니다. 본 연구에서는 이를 특징 혼동도와 시선 편향도 두 가지 지표로 정량화하고 학습 편향이 탐지 성능에 미치는 영향을 분석합니다.</p>
           </article>
-          <article class="card paper-card">
-            <div class="paper-meta" data-i18n="paper2Meta">JCCI, 2026</div>
-            <h3 data-i18n="paper2Title">Analysis of Camouflaged Object Classification Performance According to Input Image Background Ratio</h3>
-            <p data-i18n="paper2Text">Motivated by the observation that removing background information reduced performance rather than improving it, this study investigates whether background context acts as an important cue for camouflaged object classification. It experimentally analyzes how the background ratio in input images affects classification performance.</p>
-            <div class="tag-row"><span class="tag">Background Ratio</span><span class="tag">Context</span><span class="tag">Classification</span></div>
-            <div class="paper-actions"><span class="small-button disabled" data-i18n="pdfComing2">PDF coming soon</span><span class="small-button disabled" data-i18n="codeComing2">Code coming soon</span></div>
+
+          <article class="paper-item">
+            <h3 class="paper-title-ko" data-i18n="paper2TitleKo">입력 이미지 배경 비율에 따른 위장 객체 분류 성능 분석</h3>
+            <p class="paper-title-en" data-i18n="paper2TitleEn">Analysis of Camouflaged Object Classification Performance According to Input Image Background Ratio</p>
+            <p class="paper-venue" data-i18n="paper2Venue">JCCI, 2026.04</p>
+            <p class="paper-desc" data-i18n="paper2Text">배경을 제거한 이미지로 학습하면 객체를 더 명확하게 학습할 수 있어 성능이 향상될 것이라 예상했으나 오히려 원본 이미지보다 성능이 저하되는 현상을 관찰했습니다. 이는 위장 객체 학습 시 배경 정보가 중요한 단서로 활용됨을 시사하며 본 연구에서는 입력 이미지의 배경 비율이 분류 성능에 미치는 영향을 실험적으로 분석합니다.</p>
           </article>
-          <article class="card paper-card">
-            <div class="paper-meta" data-i18n="paper3Meta">KICS Winter Conference, 2026</div>
-            <h3 data-i18n="paper3Title">Unsupervised Domain Adaptation for Camouflaged Object Classification</h3>
-            <p data-i18n="paper3Text">This study addresses the lack of labeled data for camouflaged object classification. It proposes a teacher-student domain adaptation framework that learns from label-rich general object data from LVIS and transfers that knowledge to unlabeled camouflaged object data from COD10K.</p>
-            <div class="tag-row"><span class="tag">UDA</span><span class="tag">Teacher-Student</span><span class="tag">COD10K</span></div>
-            <div class="paper-actions"><span class="small-button disabled" data-i18n="pdfComing3">PDF coming soon</span><span class="small-button disabled" data-i18n="codeComing3">Code coming soon</span></div>
+
+          <article class="paper-item">
+            <h3 class="paper-title-ko" data-i18n="paper3TitleKo">비지도 도메인 적응 기반 위장 객체 분류</h3>
+            <p class="paper-title-en" data-i18n="paper3TitleEn">Unsupervised Domain Adaptation for Camouflaged Object Classification</p>
+            <p class="paper-venue" data-i18n="paper3Venue">한국통신학회 동계종합학술발표대회, 2026.02</p>
+            <p class="paper-desc" data-i18n="paper3Text">위장 객체 분류의 레이블 부족 문제를 해결하기 위해, 레이블이 풍부한 일반 객체 데이터셋(LVIS 등)으로 학습한 지식을 레이블이 없는 위장 객체 데이터셋(COD10K)으로 전이하는 교사-학생 기반 비지도 도메인 적응 프레임워크를 제안합니다.</p>
           </article>
         </div>
       </div>
@@ -354,17 +371,18 @@
         interestLabel: "Interests:", interestList: "Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI), Dataset Analysis",
         researchIntro: "I am interested in identifying why research progress becomes limited and in defining problems more clearly.\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze the structural causes of detection failure by examining data characteristics and how models interpret data.\nBased on this, I aim to contribute to better dataset construction and detection model improvement.",
         papersTitle: "Papers",
-        papersIntro: "My papers explore camouflaged objects through learning bias analysis, background context, and domain adaptation.",
-        paper1Meta: "KICS Summer Conference, 2026",
-        paper1Title: "Learning Bias Analysis in Camouflaged Object Detection via Feature Confusion and Attention Bias",
-        paper1Text: "This study analyzes the learning bias of camouflaged object detection models, which can easily rely on background cues because object-specific features are weak. It quantifies this bias using feature confusion and attention bias, and examines how it affects detection performance.",
-        paper2Meta: "JCCI, 2026",
-        paper2Title: "Analysis of Camouflaged Object Classification Performance According to Input Image Background Ratio",
-        paper2Text: "Motivated by the observation that removing background information reduced performance rather than improving it, this study investigates whether background context acts as an important cue for camouflaged object classification. It experimentally analyzes how the background ratio in input images affects classification performance.",
-        paper3Meta: "KICS Winter Conference, 2026",
-        paper3Title: "Unsupervised Domain Adaptation for Camouflaged Object Classification",
-        paper3Text: "This study addresses the lack of labeled data for camouflaged object classification. It proposes a teacher-student domain adaptation framework that learns from label-rich general object data from LVIS and transfers that knowledge to unlabeled camouflaged object data from COD10K.",
-        pdfComing: "PDF coming soon", codeComing: "Code coming soon", pdfComing2: "PDF coming soon", codeComing2: "Code coming soon", pdfComing3: "PDF coming soon", codeComing3: "Code coming soon",
+        paper1TitleKo: "특징 혼동도와 시선 편향도 기반 위장 객체 학습 편향 분석",
+        paper1TitleEn: "Learning Bias Analysis in Camouflaged Object Detection via Feature Confusion and Attention Bias",
+        paper1Venue: "KICS Summer Conference, 2026.06",
+        paper1Text: "Camouflaged objects are visually similar to their backgrounds, making models prone to learning bias by relying on background cues rather than object-specific features. This study quantifies such bias using feature confusion and attention bias, and analyzes how it affects detection performance.",
+        paper2TitleKo: "입력 이미지 배경 비율에 따른 위장 객체 분류 성능 분석",
+        paper2TitleEn: "Analysis of Camouflaged Object Classification Performance According to Input Image Background Ratio",
+        paper2Venue: "JCCI, 2026.04",
+        paper2Text: "I initially expected that removing background information would help the model learn objects more clearly and improve performance, but observed that performance decreased compared to using original images. This suggests that background information can serve as an important cue in camouflaged object learning. This study experimentally analyzes how the background ratio in input images affects classification performance.",
+        paper3TitleKo: "비지도 도메인 적응 기반 위장 객체 분류",
+        paper3TitleEn: "Unsupervised Domain Adaptation for Camouflaged Object Classification",
+        paper3Venue: "KICS Winter Conference, 2026.02",
+        paper3Text: "To address the label scarcity problem in camouflaged object classification, this study proposes a teacher-student unsupervised domain adaptation framework that transfers knowledge learned from label-rich general object datasets, including LVIS, to unlabeled camouflaged object data from COD10K.",
         conferenceTitle: "Conference", conferenceIntro: "This page will collect photos and short notes from academic presentations, conferences, and research events.",
         confPhoto1: "Presentation photo\ncoming soon", confPhoto2: "Conference moment\ncoming soon", confPhoto3: "Lab & research\ncoming soon",
         conf1Title: "JCCI 2026", conf1Text: "Presentation and discussion on camouflaged object classification.", conf2Title: "Research Presentation", conf2Text: "A place for presentation photos, poster sessions, and academic memories.", conf3Title: "Research Activities", conf3Text: "Photos from lab activities, seminars, and collaborative research events."
@@ -379,17 +397,18 @@
         interestLabel: "관심 분야:", interestList: "Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI), Dataset Analysis",
         researchIntro: "저는 연구가 정체되는 원인을 찾고, 문제를 명확하게 정의하는 과정에 흥미를 느낍니다.\n현재는 배경과 유사해 탐지하기 어려운 객체를 대상으로 데이터 특성과 모델의 해석 방식을 진단하며 탐지 실패의 구조적 원인을 분석하고 있습니다.\n이를 바탕으로 데이터 구성 방법과 탐지 모델 개선에 기여하고자 합니다.",
         papersTitle: "Papers",
-        papersIntro: "현재 논문들은 위장 객체를 학습 편향, 배경 문맥, 도메인 적응의 관점에서 분석합니다.",
-        paper1Meta: "한국통신학회 하계종합학술발표대회, 2026",
-        paper1Title: "특징 혼동도와 시선 편향도 기반 위장 객체 학습 편향 분석",
-        paper1Text: "위장 객체는 객체 고유의 특징이 두드러지지 않아 모델이 객체보다 배경의 쉬운 단서를 학습하는 편향이 발생하기 쉽습니다. 본 연구는 특징 혼동도와 시선 편향도 두 지표를 활용하여 이러한 학습 편향을 정량적으로 분석하고, 성능에 미치는 영향을 확인합니다.",
-        paper2Meta: "JCCI, 2026",
-        paper2Title: "입력 이미지 배경 비율에 따른 위장 객체 분류 성능 분석",
-        paper2Text: "이전 연구에서 배경을 제거하면 객체를 더 명확하게 학습할 수 있을 것으로 예상했지만, 오히려 원본 이미지보다 성능이 낮아지는 현상을 확인했습니다. 이를 바탕으로 위장 객체 분류에서 배경 정보가 중요한 단서로 활용될 수 있다고 보고, 입력 이미지의 배경 비율이 분류 성능에 미치는 영향을 실험적으로 분석했습니다.",
-        paper3Meta: "한국통신학회 동계종합학술발표대회, 2026",
-        paper3Title: "비지도 도메인 적응 기반 위장 객체 분류",
-        paper3Text: "위장 객체 분류에서 학습 데이터가 부족한 문제를 해결하기 위해, 레이블이 풍부한 일반 객체 데이터인 LVIS에서 학습한 지식을 레이블이 없는 위장 객체 데이터인 COD10K로 전이하는 교사-학생 기반 도메인 적응 프레임워크를 제안했습니다.",
-        pdfComing: "PDF 준비 중", codeComing: "Code 준비 중", pdfComing2: "PDF 준비 중", codeComing2: "Code 준비 중", pdfComing3: "PDF 준비 중", codeComing3: "Code 준비 중",
+        paper1TitleKo: "특징 혼동도와 시선 편향도 기반 위장 객체 학습 편향 분석",
+        paper1TitleEn: "Learning Bias Analysis in Camouflaged Object Detection via Feature Confusion and Attention Bias",
+        paper1Venue: "한국통신학회 하계종합학술발표대회, 2026.06",
+        paper1Text: "위장 객체는 배경과 시각적으로 유사해 모델이 객체 고유의 특징보다 배경의 단서에 의존하는 학습 편향이 발생하기 쉽습니다. 본 연구에서는 이를 특징 혼동도와 시선 편향도 두 가지 지표로 정량화하고 학습 편향이 탐지 성능에 미치는 영향을 분석합니다.",
+        paper2TitleKo: "입력 이미지 배경 비율에 따른 위장 객체 분류 성능 분석",
+        paper2TitleEn: "Analysis of Camouflaged Object Classification Performance According to Input Image Background Ratio",
+        paper2Venue: "JCCI, 2026.04",
+        paper2Text: "배경을 제거한 이미지로 학습하면 객체를 더 명확하게 학습할 수 있어 성능이 향상될 것이라 예상했으나 오히려 원본 이미지보다 성능이 저하되는 현상을 관찰했습니다. 이는 위장 객체 학습 시 배경 정보가 중요한 단서로 활용됨을 시사하며 본 연구에서는 입력 이미지의 배경 비율이 분류 성능에 미치는 영향을 실험적으로 분석합니다.",
+        paper3TitleKo: "비지도 도메인 적응 기반 위장 객체 분류",
+        paper3TitleEn: "Unsupervised Domain Adaptation for Camouflaged Object Classification",
+        paper3Venue: "한국통신학회 동계종합학술발표대회, 2026.02",
+        paper3Text: "위장 객체 분류의 레이블 부족 문제를 해결하기 위해, 레이블이 풍부한 일반 객체 데이터셋(LVIS 등)으로 학습한 지식을 레이블이 없는 위장 객체 데이터셋(COD10K)으로 전이하는 교사-학생 기반 비지도 도메인 적응 프레임워크를 제안합니다.",
         conferenceTitle: "Conference", conferenceIntro: "학회 발표, 연구 행사, 발표 사진과 짧은 기록을 모아두는 공간입니다.",
         confPhoto1: "발표 사진\n준비 중", confPhoto2: "학회 순간\n준비 중", confPhoto3: "연구 활동\n준비 중",
         conf1Title: "JCCI 2026", conf1Text: "위장 객체 분류 연구에 대한 발표와 논의 기록을 올릴 공간입니다.", conf2Title: "연구 발표", conf2Text: "발표 사진, 포스터 세션, 학회에서의 기억을 기록하는 공간입니다.", conf3Title: "연구 활동", conf3Text: "연구실 활동, 세미나, 공동 연구 관련 사진을 올릴 공간입니다."
