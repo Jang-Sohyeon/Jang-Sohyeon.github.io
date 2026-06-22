@@ -130,7 +130,7 @@
         linear-gradient(135deg, #f7faf4, #ffffff);
     }
 
-    .hero-text { max-width: 660px; }
+    .hero-text { max-width: 690px; }
 
     .section-label {
       display: inline-flex;
@@ -161,7 +161,7 @@
     }
 
     .intro-role {
-      margin: 0 0 26px;
+      margin: 0 0 24px;
       color: var(--pine);
       font-size: 1.06rem;
       font-weight: 800;
@@ -171,7 +171,7 @@
       margin: 0 0 28px;
       color: var(--muted);
       font-size: 1rem;
-      max-width: 620px;
+      max-width: 680px;
     }
 
     .profile-list {
@@ -191,7 +191,10 @@
     }
 
     .profile-list strong { font-weight: 850; color: var(--text); }
-    .profile-list span { color: var(--muted); }
+    .profile-list span,
+    .profile-list a { color: var(--muted); }
+    .profile-list a { border-bottom: 1px solid rgba(35, 79, 30, 0.35); }
+    .profile-list a:hover { color: var(--pine); border-bottom-color: var(--pine); }
 
     section {
       padding: 58px 0;
@@ -332,11 +335,13 @@
         <h2 class="section-label" data-i18n="aboutMe">About Me</h2>
         <h1 class="intro-name" data-i18n="introName">Sohyeon Jang</h1>
         <p class="intro-role" data-i18n="introRole">M.S. Student · Applied Artificial Intelligence · Myongji University</p>
-        <p class="intro-text" data-i18n="introText">I study how AI understands camouflaged objects that naturally blend into their surroundings. I am interested in making difficult visual AI problems easier to explain, evaluate, and improve.</p>
+        <p class="intro-text" data-i18n="introText">Hello, I am Sohyeon Jang, an M.S. student in the Department of Artificial Intelligence Convergence at Myongji University. I am a member of DAN Lab, advised by Prof. Hyunhee Park. I am currently in my third semester and expect to graduate in February 2027.</p>
 
         <ul class="profile-list">
-          <li><strong data-i18n="labelResearch">Research:</strong><span data-i18n="valueResearch">Camouflaged Object Detection & Classification</span></li>
-          <li><strong data-i18n="labelLab">Lab:</strong><span data-i18n="valueLab">Myongji University</span></li>
+          <li><strong data-i18n="labelLab">Lab:</strong><span><a href="https://danlab.mju.ac.kr/" target="_blank" rel="noreferrer">DAN Lab</a></span></li>
+          <li><strong data-i18n="labelAdvisor">Advisor:</strong><span data-i18n="valueAdvisor">Prof. Hyunhee Park</span></li>
+          <li><strong data-i18n="labelResearch">Interests:</strong><span data-i18n="valueResearch">Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI)</span></li>
+          <li><strong data-i18n="labelGraduation">Expected:</strong><span data-i18n="valueGraduation">B.S. February 2027</span></li>
         </ul>
       </div>
     </div>
@@ -344,22 +349,22 @@
     <section>
       <div class="container">
         <h2 class="section-title" data-i18n="researchTitle">Research Interests</h2>
-        <p class="section-intro" data-i18n="researchIntro">My research focuses on understanding why visual AI models struggle with camouflaged objects and how to evaluate their behavior more clearly.</p>
+        <p class="section-intro" data-i18n="researchIntro">My research focuses on visual AI problems involving objects that are difficult to distinguish from their surroundings, and on making model behavior more interpretable through explainable AI.</p>
         <div class="grid-3">
           <article class="card">
-            <h3 data-i18n="aboutCard1Title">Camouflaged Object Understanding</h3>
-            <p data-i18n="aboutCard1Text">I work on visual recognition problems where the object and background are highly similar.</p>
+            <h3 data-i18n="aboutCard1Title">Camouflaged Object Detection</h3>
+            <p data-i18n="aboutCard1Text">I study visual recognition problems where the object and background are highly similar.</p>
             <div class="tag-row"><span class="tag">COD</span><span class="tag">Vision AI</span></div>
           </article>
           <article class="card">
-            <h3 data-i18n="aboutCard2Title">Classification & Detection</h3>
-            <p data-i18n="aboutCard2Text">I study classification, detection, background context, and model behavior in difficult visual scenes.</p>
-            <div class="tag-row"><span class="tag">Classification</span><span class="tag">Detection</span></div>
+            <h3 data-i18n="aboutCard2Title">Elusive Object Detection</h3>
+            <p data-i18n="aboutCard2Text">I am interested in detecting visually ambiguous objects that are hard to localize and recognize.</p>
+            <div class="tag-row"><span class="tag">Elusive Objects</span><span class="tag">Detection</span></div>
           </article>
           <article class="card">
-            <h3 data-i18n="aboutCard3Title">Evaluation & Bias</h3>
-            <p data-i18n="aboutCard3Text">I am interested in evaluation metrics and learning bias analysis for more reliable visual AI systems.</p>
-            <div class="tag-row"><span class="tag">Evaluation</span><span class="tag">Bias</span></div>
+            <h3 data-i18n="aboutCard3Title">Explainable AI (XAI)</h3>
+            <p data-i18n="aboutCard3Text">I explore ways to understand where visual models look and why they make certain predictions.</p>
+            <div class="tag-row"><span class="tag">XAI</span><span class="tag">Interpretability</span></div>
           </article>
         </div>
       </div>
@@ -417,16 +422,18 @@
         introName: "Sohyeon Jang",
         navAbout: "About", navPapers: "Papers", navConference: "Conference",
         aboutMe: "About Me",
-        introRole: "M.S. Student · Applied Artificial Intelligence · Myongji University",
-        introText: "I study how AI understands camouflaged objects that naturally blend into their surroundings. I am interested in making difficult visual AI problems easier to explain, evaluate, and improve.",
-        labelResearch: "Research:", valueResearch: "Camouflaged Object Detection & Classification",
-        labelLab: "Lab:", valueLab: "Myongji University",
+        introRole: "M.S. Student · Artificial Intelligence Convergence · Myongji University",
+        introText: "Hello, I am Sohyeon Jang, an M.S. student in the Department of Artificial Intelligence Convergence at Myongji University. I am a member of DAN Lab, advised by Prof. Hyunhee Park. I am currently in my third semester and expect to graduate in February 2027.",
+        labelLab: "Lab:",
+        labelAdvisor: "Advisor:", valueAdvisor: "Prof. Hyunhee Park",
+        labelResearch: "Interests:", valueResearch: "Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI)",
+        labelGraduation: "Expected:", valueGraduation: "M.S. February 2027",
         photoPlaceholder: "Profile photo area\nReplace with your own photo",
         researchTitle: "Research Interests",
-        researchIntro: "My research focuses on understanding why visual AI models struggle with camouflaged objects and how to evaluate their behavior more clearly.",
-        aboutCard1Title: "Camouflaged Object Understanding", aboutCard1Text: "I work on visual recognition problems where the object and background are highly similar.",
-        aboutCard2Title: "Classification & Detection", aboutCard2Text: "I study classification, detection, background context, and model behavior in difficult visual scenes.",
-        aboutCard3Title: "Evaluation & Bias", aboutCard3Text: "I am interested in evaluation metrics and learning bias analysis for more reliable visual AI systems.",
+        researchIntro: "My research focuses on visual AI problems involving objects that are difficult to distinguish from their surroundings, and on making model behavior more interpretable through explainable AI.",
+        aboutCard1Title: "Camouflaged Object Detection", aboutCard1Text: "I study visual recognition problems where the object and background are highly similar.",
+        aboutCard2Title: "Elusive Object Detection", aboutCard2Text: "I am interested in detecting visually ambiguous objects that are hard to localize and recognize.",
+        aboutCard3Title: "Explainable AI (XAI)", aboutCard3Text: "I explore ways to understand where visual models look and why they make certain predictions.",
         papersTitle: "Papers", papersIntro: "My current work investigates camouflaged objects from three connected perspectives: domain adaptation, background context, and learning bias.",
         paper1Title: "Unsupervised Domain Adaptation for Camouflaged Object Classification", paper1Text: "A teacher-student domain adaptation framework for classifying camouflaged objects using labeled non-camouflaged source data and unlabeled camouflaged target data.",
         paper2Title: "Analysis of Camouflaged Object Classification Performance According to Input Image Background Ratio", paper2Text: "An experimental analysis of how the background ratio in input images affects camouflaged object classification performance with ResNet-50 and Swin-Tiny.",
@@ -442,15 +449,17 @@
         navAbout: "소개", navPapers: "논문", navConference: "학회",
         aboutMe: "About Me",
         introRole: "석사과정 · 인공지능융합학과 · 명지대학교",
-        introText: "저는 주변 환경과 자연스럽게 섞여 보이는 위장 객체를 AI가 어떻게 이해하는지 연구합니다. 어려운 시각 AI 문제를 더 쉽게 설명하고, 평가하고, 개선하는 방법에 관심이 있습니다.",
-        labelResearch: "연구:", valueResearch: "위장 객체 탐지 및 분류",
-        labelLab: "소속:", valueLab: "명지대학교",
+        introText: "안녕하세요, 장소현입니다. 저는 명지대학교 인공지능융합학과 DAN Lab에서 박현희 교수님의 지도 아래 석사과정을 진행하고 있습니다. 현재 3학기차이며, 2027년 2월 졸업을 예정하고 있습니다.",
+        labelLab: "연구실:",
+        labelAdvisor: "지도교수:", valueAdvisor: "박현희 교수님",
+        labelResearch: "관심 분야:", valueResearch: "Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI)",
+        labelGraduation: "졸업 예정:", valueGraduation: "2027년 2월 석사 졸업 예정",
         photoPlaceholder: "프로필 사진 영역\n나중에 본인 사진으로 교체",
         researchTitle: "Research Interests",
-        researchIntro: "제 연구는 시각 AI 모델이 위장 객체를 어려워하는 이유를 이해하고, 그 동작을 더 명확하게 평가하는 데 초점을 둡니다.",
-        aboutCard1Title: "위장 객체 이해", aboutCard1Text: "객체와 배경이 매우 유사한 시각 인식 문제를 연구합니다.",
-        aboutCard2Title: "분류 및 탐지", aboutCard2Text: "위장 객체 분류, 탐지, 배경 문맥, 어려운 시각 장면에서의 모델 동작을 분석합니다.",
-        aboutCard3Title: "평가 및 편향", aboutCard3Text: "더 신뢰할 수 있는 시각 AI 시스템을 위한 평가 지표와 학습 편향 분석에 관심이 있습니다.",
+        researchIntro: "제 연구는 주변 환경과 구분하기 어려운 객체를 다루는 시각 AI 문제와, 모델의 판단 과정을 더 해석 가능하게 만드는 Explainable AI에 초점을 둡니다.",
+        aboutCard1Title: "Camouflaged Object Detection", aboutCard1Text: "객체와 배경이 매우 유사한 상황에서 객체를 탐지하는 문제를 연구합니다.",
+        aboutCard2Title: "Elusive Object Detection", aboutCard2Text: "눈에 잘 띄지 않거나 위치를 특정하기 어려운 모호한 객체를 탐지하는 문제에 관심이 있습니다.",
+        aboutCard3Title: "Explainable AI (XAI)", aboutCard3Text: "시각 모델이 어디를 보고, 왜 특정한 판단을 내리는지 이해하는 방법을 탐구합니다.",
         papersTitle: "Papers", papersIntro: "현재 연구는 도메인 적응, 배경 문맥, 학습 편향이라는 세 관점에서 위장 객체를 분석합니다.",
         paper1Title: "비지도 도메인 적응 기반 위장 객체 분류", paper1Text: "레이블이 있는 비위장 객체 데이터를 소스 도메인으로, 레이블이 없는 위장 객체 데이터를 타깃 도메인으로 활용하는 교사-학생 기반 도메인 적응 프레임워크입니다.",
         paper2Title: "입력 이미지 배경 비율에 따른 위장 객체 분류 성능 분석", paper2Text: "ResNet-50과 Swin-Tiny를 활용하여 입력 이미지의 배경 비율이 위장 객체 분류 성능에 미치는 영향을 실험적으로 분석했습니다.",
