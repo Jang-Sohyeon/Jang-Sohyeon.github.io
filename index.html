@@ -17,8 +17,10 @@
       --orange-soft: #fff1e7;
       --shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
     }
+
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
@@ -26,8 +28,10 @@
       color: var(--text);
       line-height: 1.7;
     }
+
     a { color: inherit; text-decoration: none; }
-    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .container { width: min(1080px, calc(100% - 40px)); margin: 0 auto; }
+
     header {
       position: sticky;
       top: 0;
@@ -36,6 +40,7 @@
       background: rgba(255, 250, 243, 0.88);
       border-bottom: 1px solid rgba(234, 223, 206, 0.85);
     }
+
     .nav {
       min-height: 76px;
       display: flex;
@@ -43,12 +48,15 @@
       justify-content: space-between;
       gap: 24px;
     }
+
     .brand { font-weight: 850; letter-spacing: -0.03em; white-space: nowrap; }
     .brand .green { color: var(--green); }
     .brand .orange { color: var(--orange); }
+
     .nav-links { display: flex; align-items: center; gap: 24px; font-size: 0.92rem; font-weight: 750; }
     .nav-links a { padding: 8px 0; border-bottom: 2px solid transparent; }
     .nav-links a:hover { border-bottom-color: var(--orange); }
+
     .lang-toggle {
       display: inline-flex;
       border: 1px solid var(--line);
@@ -57,6 +65,7 @@
       padding: 5px;
       gap: 4px;
     }
+
     .lang-toggle button {
       border: 0;
       border-radius: 999px;
@@ -66,94 +75,136 @@
       color: var(--muted);
       cursor: pointer;
     }
+
     .lang-toggle button.active { background: var(--orange); color: white; }
+
     .hero {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 58px;
+      grid-template-columns: 280px minmax(0, 1fr);
+      gap: 56px;
       align-items: center;
-      padding: 76px 0 64px;
+      padding: 72px 0 58px;
     }
+
+    .profile-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .photo-card {
+      width: 240px;
+      height: 240px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fff1e7, #edf6ec);
+      box-shadow: var(--shadow);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 28px;
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 850;
+      letter-spacing: -0.02em;
+      white-space: pre-line;
+    }
+
+    .note-card {
+      max-width: 260px;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 850;
+      text-align: center;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.06);
+    }
+
+    .note-card strong { color: var(--orange); }
+
+    .hero-text { max-width: 720px; }
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
       color: var(--green);
+      font-size: 0.95rem;
       font-weight: 850;
     }
+
     .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--green); }
+
     h1 {
-      margin: 0 0 24px;
-      font-size: clamp(2.8rem, 7vw, 5.8rem);
-      line-height: 0.98;
-      letter-spacing: -0.075em;
+      margin: 0 0 20px;
+      font-size: clamp(2.1rem, 4.2vw, 3.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.055em;
     }
+
     h1 .green { color: var(--green); }
     h1 .orange { color: var(--orange); }
+
     .lead {
       max-width: 640px;
-      margin: 0 0 18px;
-      font-size: clamp(1.08rem, 2vw, 1.32rem);
-      font-weight: 650;
+      margin: 0 0 14px;
+      font-size: clamp(1.02rem, 1.6vw, 1.16rem);
+      font-weight: 620;
       color: #303030;
     }
-    .sublead { max-width: 650px; margin: 0; color: var(--muted); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+
+    .sublead {
+      max-width: 650px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 46px;
-      padding: 0 20px;
+      min-height: 44px;
+      padding: 0 18px;
       border: 1px solid var(--line);
       border-radius: 13px;
       background: white;
       font-weight: 850;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+
     .button:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
     .button.primary { background: var(--orange); border-color: var(--orange); color: white; }
-    .photo-card {
-      position: relative;
-      aspect-ratio: 4 / 3.2;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      background: linear-gradient(135deg, #fff1e7, #edf6ec);
-      box-shadow: var(--shadow);
-    }
-    .photo-placeholder {
-      height: 100%;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 32px;
-      color: var(--green);
-      font-weight: 900;
-      letter-spacing: -0.03em;
-      white-space: pre-line;
-    }
-    .note-card {
-      position: absolute;
-      right: 20px;
-      bottom: 18px;
-      padding: 13px 16px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(255,255,255,0.92);
-      color: var(--green);
-      font-weight: 850;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
-    }
-    .note-card strong { color: var(--orange); }
+
     section { padding: 58px 0; border-top: 1px solid rgba(234, 223, 206, 0.9); }
+
     .section-title {
       margin: 0 0 14px;
       font-size: clamp(1.8rem, 3vw, 2.6rem);
       line-height: 1.12;
       letter-spacing: -0.045em;
     }
+
     .section-title::after {
       content: "";
       display: block;
@@ -162,8 +213,10 @@
       margin-top: 14px;
       background: var(--orange);
     }
+
     .section-intro { max-width: 760px; margin: 0 0 30px; color: var(--muted); }
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+
     .card {
       background: rgba(255,255,255,0.84);
       border: 1px solid var(--line);
@@ -171,9 +224,12 @@
       padding: 24px;
       box-shadow: 0 12px 34px rgba(0,0,0,0.035);
     }
+
     .card h3 { margin: 0 0 10px; font-size: 1.05rem; line-height: 1.35; }
     .card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+
     .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+
     .tag {
       display: inline-flex;
       border-radius: 999px;
@@ -183,10 +239,13 @@
       font-size: 0.78rem;
       font-weight: 850;
     }
+
     .tag.orange { background: var(--orange-soft); color: var(--orange); }
+
     .paper-card { min-height: 360px; display: flex; flex-direction: column; }
     .paper-meta { margin-bottom: 12px; color: var(--green); font-size: 0.88rem; font-weight: 850; }
     .paper-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: auto; padding-top: 20px; }
+
     .small-button {
       border: 1px solid var(--line);
       border-radius: 999px;
@@ -195,8 +254,10 @@
       font-size: 0.82rem;
       font-weight: 850;
     }
+
     .small-button.disabled { color: #9a9a9a; background: #f8f5ef; }
     .gallery-card { padding: 0; overflow: hidden; }
+
     .gallery-placeholder {
       min-height: 210px;
       display: grid;
@@ -211,36 +272,18 @@
       font-weight: 900;
       white-space: pre-line;
     }
+
     .gallery-body { padding: 22px; }
-    .quote-card {
-      display: grid;
-      grid-template-columns: 0.82fr 1.18fr;
-      align-items: center;
-      gap: 28px;
-    }
-    blockquote {
-      margin: 0;
-      color: var(--green);
-      font-size: clamp(1.28rem, 3vw, 2rem);
-      line-height: 1.35;
-      letter-spacing: -0.045em;
-      font-weight: 850;
-    }
-    .contact-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-    .contact-pill {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: white;
-      padding: 10px 14px;
-      font-weight: 800;
-    }
     footer { padding: 34px 0 50px; color: var(--muted); font-size: 0.9rem; }
+
     @media (max-width: 860px) {
       .nav { flex-wrap: wrap; padding: 16px 0; }
       .nav-links { order: 3; width: 100%; justify-content: space-between; gap: 12px; overflow-x: auto; }
-      .hero, .quote-card { grid-template-columns: 1fr; }
+      .hero { grid-template-columns: 1fr; gap: 30px; padding-top: 46px; text-align: left; }
+      .profile-wrap { align-items: flex-start; }
+      .photo-card { width: 190px; height: 190px; }
+      .note-card { text-align: left; }
       .grid-3 { grid-template-columns: 1fr; }
-      .hero { padding-top: 46px; }
     }
   </style>
 </head>
@@ -262,7 +305,14 @@
 
   <main>
     <div class="container hero" id="about">
-      <div>
+      <div class="profile-wrap">
+        <div class="photo-card">
+          <div class="photo-placeholder" data-i18n="photoPlaceholder">Profile photo area\nReplace with your own photo</div>
+        </div>
+        <div class="note-card"><span data-i18n="noteText">clear, warm, and</span> <strong data-i18n="noteStrong">research-focused</strong></div>
+      </div>
+
+      <div class="hero-text">
         <div class="eyebrow" data-i18n="eyebrow">M.S. Student · Computer Vision</div>
         <h1><span data-i18n="heroLine1">Camouflaged</span><br><span class="green" data-i18n="heroLine2">Object</span> <span class="orange" data-i18n="heroLine3">Understanding</span></h1>
         <p class="lead" data-i18n="heroLead">Hi, I'm Sohyeon Jang. I study how AI understands objects that blend into their surroundings.</p>
@@ -271,10 +321,6 @@
           <a class="button primary" href="#papers" data-i18n="viewPapers">View Papers</a>
           <a class="button" href="#conference" data-i18n="viewConference">Conference Photos</a>
         </div>
-      </div>
-      <div class="photo-card">
-        <div class="photo-placeholder" data-i18n="photoPlaceholder">Profile photo area\nReplace with your own photo</div>
-        <div class="note-card"><span data-i18n="noteText">clear, warm, and</span> <strong data-i18n="noteStrong">research-focused</strong></div>
       </div>
     </div>
 
@@ -366,8 +412,7 @@
         pdfComing: "PDF coming soon", codeComing: "Code coming soon", pdfComing2: "PDF coming soon", codeComing2: "Code coming soon", pdfComing3: "PDF coming soon", codeComing3: "Code coming soon",
         conferenceTitle: "Conference", conferenceIntro: "This page will collect photos and short notes from academic presentations, conferences, and research events.",
         confPhoto1: "Presentation photo\ncoming soon", confPhoto2: "Conference moment\ncoming soon", confPhoto3: "Lab & research\ncoming soon",
-        conf1Title: "JCCI 2026", conf1Text: "Presentation and discussion on camouflaged object classification.", conf2Title: "Research Presentation", conf2Text: "A place for presentation photos, poster sessions, and academic memories.", conf3Title: "Research Activities", conf3Text: "Photos from lab activities, seminars, and collaborative research events.",
-        contactTitle: "Contact", contactIntro: "Feel free to reach out for research discussions or collaboration.", quote: "I like making difficult visual AI problems easier to understand."
+        conf1Title: "JCCI 2026", conf1Text: "Presentation and discussion on camouflaged object classification.", conf2Title: "Research Presentation", conf2Text: "A place for presentation photos, poster sessions, and academic memories.", conf3Title: "Research Activities", conf3Text: "Photos from lab activities, seminars, and collaborative research events."
       },
       ko: {
         navAbout: "소개", navPapers: "논문", navConference: "학회",
@@ -386,10 +431,10 @@
         pdfComing: "PDF 준비 중", codeComing: "Code 준비 중", pdfComing2: "PDF 준비 중", codeComing2: "Code 준비 중", pdfComing3: "PDF 준비 중", codeComing3: "Code 준비 중",
         conferenceTitle: "학회", conferenceIntro: "학회 발표, 연구 행사, 발표 사진과 짧은 기록을 모아두는 공간입니다.",
         confPhoto1: "발표 사진\n준비 중", confPhoto2: "학회 순간\n준비 중", confPhoto3: "연구 활동\n준비 중",
-        conf1Title: "JCCI 2026", conf1Text: "위장 객체 분류 연구에 대한 발표와 논의 기록을 올릴 공간입니다.", conf2Title: "연구 발표", conf2Text: "발표 사진, 포스터 세션, 학회에서의 기억을 기록하는 공간입니다.", conf3Title: "연구 활동", conf3Text: "연구실 활동, 세미나, 공동 연구 관련 사진을 올릴 공간입니다.",
-        contactTitle: "연락처", contactIntro: "연구 논의나 협업 관련 연락을 환영합니다.", quote: "저는 어려운 시각 AI 문제를 쉽게 이해할 수 있도록 설명하는 것을 좋아합니다."
+        conf1Title: "JCCI 2026", conf1Text: "위장 객체 분류 연구에 대한 발표와 논의 기록을 올릴 공간입니다.", conf2Title: "연구 발표", conf2Text: "발표 사진, 포스터 세션, 학회에서의 기억을 기록하는 공간입니다.", conf3Title: "연구 활동", conf3Text: "연구실 활동, 세미나, 공동 연구 관련 사진을 올릴 공간입니다."
       }
     };
+
     function setLanguage(lang) {
       document.documentElement.lang = lang === "ko" ? "ko" : "en";
       document.querySelectorAll("[data-i18n]").forEach((el) => {
@@ -399,6 +444,7 @@
       document.querySelectorAll(".lang-toggle button").forEach((button) => button.classList.toggle("active", button.dataset.lang === lang));
       localStorage.setItem("siteLanguage", lang);
     }
+
     document.querySelectorAll(".lang-toggle button").forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.lang)));
     document.getElementById("year").innerText = new Date().getFullYear();
     setLanguage(localStorage.getItem("siteLanguage") || "en");
