@@ -94,16 +94,13 @@
 
     .hero {
       display: grid;
-      grid-template-columns: 340px minmax(0, 1fr);
+      grid-template-columns: 320px minmax(0, 1fr);
       gap: 64px;
-      align-items: center;
-      padding: 70px 0 62px;
+      align-items: start;
+      padding: 70px 0 64px;
     }
 
-    .photo-panel {
-      width: 100%;
-      max-width: 320px;
-    }
+    .photo-panel { width: 100%; max-width: 300px; }
 
     .photo-card {
       width: 100%;
@@ -130,13 +127,17 @@
         linear-gradient(135deg, #f7faf4, #ffffff);
     }
 
-    .hero-text { max-width: 700px; }
+    .hero-text { max-width: 760px; }
 
-    .section-label {
+    .content-block { margin-bottom: 38px; }
+    .content-block:last-child { margin-bottom: 0; }
+
+    .section-label,
+    .section-title {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      margin: 0 0 28px;
+      margin: 0 0 22px;
       font-size: 1.25rem;
       line-height: 1.2;
       letter-spacing: -0.035em;
@@ -144,7 +145,8 @@
       color: var(--text);
     }
 
-    .section-label::before {
+    .section-label::before,
+    .section-title::before {
       content: "";
       width: 28px;
       height: 3px;
@@ -152,11 +154,13 @@
       border-radius: 999px;
     }
 
-    .intro-text {
-      margin: 0 0 28px;
+    .intro-text,
+    .research-text,
+    .section-intro {
+      margin: 0 0 22px;
       color: var(--muted);
       font-size: 1rem;
-      max-width: 680px;
+      max-width: 760px;
       white-space: pre-line;
     }
 
@@ -182,39 +186,17 @@
     .profile-list a { border-bottom: 1px solid rgba(35, 79, 30, 0.35); }
     .profile-list a:hover { color: var(--pine); border-bottom-color: var(--pine); }
 
-    section {
-      padding: 58px 0;
-      border-top: 1px solid var(--line);
-    }
-
-    .section-title {
-      display: inline-block;
-      margin: 0 0 28px;
-      padding-bottom: 8px;
-      border-bottom: 3px solid var(--pine);
-      font-size: 1.25rem;
-      line-height: 1.2;
-      letter-spacing: -0.035em;
-      font-weight: 850;
-    }
-
-    .section-intro {
-      max-width: 820px;
-      margin: 0 0 28px;
-      color: var(--muted);
-      font-size: 0.98rem;
-      white-space: pre-line;
-    }
-
     .interests-line {
-      max-width: 820px;
-      margin: 0 0 24px;
+      max-width: 760px;
+      margin: 0 0 18px;
       color: var(--text);
       font-size: 0.98rem;
       font-weight: 600;
     }
 
     .interests-line strong { color: var(--pine); font-weight: 850; }
+
+    section { padding: 58px 0; border-top: 1px solid var(--line); }
 
     .grid-3 {
       display: grid;
@@ -237,11 +219,7 @@
       letter-spacing: -0.02em;
     }
 
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
+    .card p { margin: 0; color: var(--muted); font-size: 0.94rem; }
 
     .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
 
@@ -329,39 +307,22 @@
       </div>
 
       <div class="hero-text">
-        <h2 class="section-label" data-i18n="aboutMe">About Me</h2>
-        <p class="intro-text" data-i18n="introText">Hello, I am Sohyeon Jang.\nI am pursuing an M.S. degree in the Department of Artificial Intelligence Convergence at Myongji University, advised by Prof. Hyunhee Park in DAN Lab. I am currently in my third semester and expect to graduate in February 2027.</p>
+        <div class="content-block">
+          <h2 class="section-label" data-i18n="aboutMe">About Me</h2>
+          <p class="intro-text" data-i18n="introText">Hello, I am Sohyeon Jang.\nI am pursuing an M.S. degree in the Department of Artificial Intelligence Convergence at Myongji University, advised by Prof. Hyunhee Park in DAN Lab. I am currently in my third semester and expect to graduate in February 2027.</p>
 
-        <ul class="profile-list">
-          <li><strong data-i18n="labelLab">Lab:</strong><span><a href="https://danlab.mju.ac.kr/" target="_blank" rel="noreferrer" data-i18n="labLink">DAN Lab Website</a></span></li>
-        </ul>
-      </div>
-    </div>
+          <ul class="profile-list">
+            <li><strong data-i18n="labelLab">Lab:</strong><span><a href="https://danlab.mju.ac.kr/" target="_blank" rel="noreferrer" data-i18n="labLink">DAN Lab Website</a></span></li>
+          </ul>
+        </div>
 
-    <section>
-      <div class="container">
-        <h2 class="section-title" data-i18n="researchTitle">Research Interests</h2>
-        <p class="interests-line"><strong data-i18n="interestLabel">Interests:</strong> <span data-i18n="interestList">Camouflaged Object Detection (COD), Elusive Object Detection (EOD), Explainable AI (XAI)</span></p>
-        <p class="section-intro" data-i18n="researchIntro">I am interested in identifying why research progress becomes limited and in defining problems more clearly.\n\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze why AI models miss specific objects by examining data characteristics, data distributions, and the way models interpret data. Through this process, I aim to understand the structural causes of detection failure.\n\nBased on these insights, I study experimental designs, difficulty analysis criteria, and data construction strategies that can reveal the problem more clearly.</p>
-        <div class="grid-3">
-          <article class="card">
-            <h3 data-i18n="aboutCard1Title">Camouflaged Object Detection</h3>
-            <p data-i18n="aboutCard1Text">I study visual recognition problems where the object and background are highly similar.</p>
-            <div class="tag-row"><span class="tag">COD</span><span class="tag">Vision AI</span></div>
-          </article>
-          <article class="card">
-            <h3 data-i18n="aboutCard2Title">Elusive Object Detection</h3>
-            <p data-i18n="aboutCard2Text">I am interested in detecting visually ambiguous objects that are hard to localize and recognize.</p>
-            <div class="tag-row"><span class="tag">EOD</span><span class="tag">Detection</span></div>
-          </article>
-          <article class="card">
-            <h3 data-i18n="aboutCard3Title">Explainable AI (XAI)</h3>
-            <p data-i18n="aboutCard3Text">I explore ways to understand where visual models look and why they make certain predictions.</p>
-            <div class="tag-row"><span class="tag">XAI</span><span class="tag">Interpretability</span></div>
-          </article>
+        <div class="content-block" id="research">
+          <h2 class="section-label" data-i18n="researchTitle">Research Interests</h2>
+          <p class="interests-line"><strong data-i18n="interestLabel">Interests:</strong> <span data-i18n="interestList">Camouflaged Object Detection (COD), Elusive Object Detection (EOD), Explainable AI (XAI)</span></p>
+          <p class="research-text" data-i18n="researchIntro">I am interested in identifying why research progress becomes limited and in defining problems more clearly.\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze why AI models miss specific objects by examining data characteristics, data distributions, and the way models interpret data. Through this process, I aim to understand the structural causes of detection failure.\nBased on these insights, I study experimental designs, difficulty analysis criteria, and data construction strategies that can reveal the problem more clearly.</p>
         </div>
       </div>
-    </section>
+    </div>
 
     <section id="papers">
       <div class="container">
@@ -419,10 +380,7 @@
         photoPlaceholder: "Profile photo area\nReplace with your own photo",
         researchTitle: "Research Interests",
         interestLabel: "Interests:", interestList: "Camouflaged Object Detection (COD), Elusive Object Detection (EOD), Explainable AI (XAI)",
-        researchIntro: "I am interested in identifying why research progress becomes limited and in defining problems more clearly.\n\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze why AI models miss specific objects by examining data characteristics, data distributions, and the way models interpret data. Through this process, I aim to understand the structural causes of detection failure.\n\nBased on these insights, I study experimental designs, difficulty analysis criteria, and data construction strategies that can reveal the problem more clearly.",
-        aboutCard1Title: "Camouflaged Object Detection", aboutCard1Text: "I study visual recognition problems where the object and background are highly similar.",
-        aboutCard2Title: "Elusive Object Detection", aboutCard2Text: "I am interested in detecting visually ambiguous objects that are hard to localize and recognize.",
-        aboutCard3Title: "Explainable AI (XAI)", aboutCard3Text: "I explore ways to understand where visual models look and why they make certain predictions.",
+        researchIntro: "I am interested in identifying why research progress becomes limited and in defining problems more clearly.\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze why AI models miss specific objects by examining data characteristics, data distributions, and the way models interpret data. Through this process, I aim to understand the structural causes of detection failure.\nBased on these insights, I study experimental designs, difficulty analysis criteria, and data construction strategies that can reveal the problem more clearly.",
         papersTitle: "Papers", papersIntro: "My current work investigates camouflaged objects from three connected perspectives: domain adaptation, background context, and learning bias.",
         paper1Title: "Unsupervised Domain Adaptation for Camouflaged Object Classification", paper1Text: "A teacher-student domain adaptation framework for classifying camouflaged objects using labeled non-camouflaged source data and unlabeled camouflaged target data.",
         paper2Title: "Analysis of Camouflaged Object Classification Performance According to Input Image Background Ratio", paper2Text: "An experimental analysis of how the background ratio in input images affects camouflaged object classification performance with ResNet-50 and Swin-Tiny.",
@@ -436,15 +394,12 @@
         brandName: "장소현",
         navAbout: "소개", navPapers: "논문", navConference: "학회",
         aboutMe: "About Me",
-        introText: "안녕하세요 장소현입니다.\n\n저는 명지대학교 인공지능융합학과 DAN Lab에서 박현희 교수님의 지도 아래 석사과정을 진행하고 있습니다. 현재 3학기차이며 2027년 2월 졸업을 예정하고 있습니다.",
+        introText: "안녕하세요 장소현입니다.\n저는 명지대학교 인공지능융합학과 DAN Lab에서 박현희 교수님의 지도 아래 석사과정을 진행하고 있습니다. 현재 3학기차이며 2027년 2월 졸업을 예정하고 있습니다.",
         labelLab: "연구실:", labLink: "DAN Lab 홈페이지",
         photoPlaceholder: "프로필 사진 영역\n나중에 본인 사진으로 교체",
         researchTitle: "Research Interests",
         interestLabel: "관심 분야:", interestList: "Camouflaged Object Detection (COD), Elusive Object Detection (EOD), Explainable AI (XAI)",
-        researchIntro: "저는 연구가 정체되는 지점에서 원인을 찾고 문제를 더 명확하게 정의하는 과정에 흥미를 느낍니다.\n\n현재는 배경과 시각적으로 유사하여 탐지하기 어려운 객체를 대상으로 AI 모델이 왜 특정 객체를 놓치는지 분석하고 있습니다. 데이터의 특성과 분포, 모델이 데이터를 해석하는 방식을 함께 살펴보며 탐지 실패가 발생하는 구조적 원인을 이해하고자 합니다.\n\n이를 바탕으로 문제를 더 선명하게 드러낼 수 있는 실험 설계, 난이도 분석 기준, 데이터 구성 방법을 연구하고 있습니다.",
-        aboutCard1Title: "Camouflaged Object Detection", aboutCard1Text: "객체와 배경이 시각적으로 유사하여 탐지하기 어려운 문제를 연구합니다.",
-        aboutCard2Title: "Elusive Object Detection", aboutCard2Text: "눈에 잘 띄지 않거나 위치를 특정하기 어려운 객체를 탐지하는 문제에 관심이 있습니다.",
-        aboutCard3Title: "Explainable AI (XAI)", aboutCard3Text: "시각 모델이 어디를 보고, 왜 특정한 판단을 내리는지 이해하는 방법을 탐구합니다.",
+        researchIntro: "저는 연구가 정체되는 지점에서 원인을 찾고 문제를 더 명확하게 정의하는 과정에 흥미를 느낍니다.\n현재는 배경과 시각적으로 유사하여 탐지하기 어려운 객체를 대상으로 AI 모델이 왜 특정 객체를 놓치는지 분석하고 있습니다. 데이터의 특성과 분포, 모델이 데이터를 해석하는 방식을 함께 살펴보며 탐지 실패가 발생하는 구조적 원인을 이해하고자 합니다.\n이를 바탕으로 문제를 더 선명하게 드러낼 수 있는 실험 설계, 난이도 분석 기준, 데이터 구성 방법을 연구하고 있습니다.",
         papersTitle: "Papers", papersIntro: "현재 연구는 도메인 적응, 배경 문맥, 학습 편향이라는 세 관점에서 위장 객체를 분석합니다.",
         paper1Title: "비지도 도메인 적응 기반 위장 객체 분류", paper1Text: "레이블이 있는 비위장 객체 데이터를 소스 도메인으로, 레이블이 없는 위장 객체 데이터를 타깃 도메인으로 활용하는 교사-학생 기반 도메인 적응 프레임워크입니다.",
         paper2Title: "입력 이미지 배경 비율에 따른 위장 객체 분류 성능 분석", paper2Text: "ResNet-50과 Swin-Tiny를 활용하여 입력 이미지의 배경 비율이 위장 객체 분류 성능에 미치는 영향을 실험적으로 분석했습니다.",
