@@ -223,45 +223,6 @@
       line-height: 1.75;
     }
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 10px 28px rgba(35, 79, 30, 0.045);
-    }
-
-    .card h3 {
-      margin: 0 0 10px;
-      font-size: 1.02rem;
-      line-height: 1.35;
-      letter-spacing: -0.02em;
-    }
-
-    .card p { margin: 0; color: var(--muted); font-size: 0.94rem; }
-
-    .gallery-card { padding: 0; overflow: hidden; }
-    .gallery-placeholder {
-      min-height: 190px;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 24px;
-      white-space: pre-line;
-      color: var(--pine);
-      font-weight: 850;
-      background: linear-gradient(135deg, #f7faf4, #ffffff);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .gallery-body { padding: 22px; }
-
     footer {
       padding: 34px 0 50px;
       color: var(--muted);
@@ -271,10 +232,9 @@
 
     @media (max-width: 860px) {
       .nav { flex-wrap: wrap; padding: 16px 0; }
-      .nav-links { order: 3; width: 100%; justify-content: space-between; gap: 12px; overflow-x: auto; }
+      .nav-links { order: 3; width: 100%; justify-content: flex-start; gap: 24px; overflow-x: auto; }
       .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 48px; }
       .photo-panel { max-width: 260px; }
-      .grid-3 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -285,7 +245,6 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#about" class="active" data-i18n="navAbout">About</a>
         <a href="#papers" data-i18n="navPapers">Papers</a>
-        <a href="#conference" data-i18n="navConference">Conference</a>
       </nav>
       <div class="lang-toggle" aria-label="Language toggle">
         <button type="button" class="active" data-lang="en">EN</button>
@@ -343,18 +302,6 @@
         </div>
       </div>
     </section>
-
-    <section id="conference">
-      <div class="container">
-        <h2 class="section-title" data-i18n="conferenceTitle">Conference</h2>
-        <p class="section-intro" data-i18n="conferenceIntro">This page will collect photos and short notes from academic presentations, conferences, and research events.</p>
-        <div class="grid-3">
-          <article class="card gallery-card"><div class="gallery-placeholder" data-i18n="confPhoto1">Presentation photo\ncoming soon</div><div class="gallery-body"><h3 data-i18n="conf1Title">JCCI 2026</h3><p data-i18n="conf1Text">Presentation and discussion on camouflaged object classification.</p></div></article>
-          <article class="card gallery-card"><div class="gallery-placeholder" data-i18n="confPhoto2">Conference moment\ncoming soon</div><div class="gallery-body"><h3 data-i18n="conf2Title">Research Presentation</h3><p data-i18n="conf2Text">A place for presentation photos, poster sessions, and academic memories.</p></div></article>
-          <article class="card gallery-card"><div class="gallery-placeholder" data-i18n="confPhoto3">Lab & research\ncoming soon</div><div class="gallery-body"><h3 data-i18n="conf3Title">Research Activities</h3><p data-i18n="conf3Text">Photos from lab activities, seminars, and collaborative research events.</p></div></article>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer><div class="container">© <span id="year"></span> Sohyeon Jang. Built with GitHub Pages.</div></footer>
@@ -363,7 +310,7 @@
     const translations = {
       en: {
         brandName: "Sohyeon Jang",
-        navAbout: "About", navPapers: "Papers", navConference: "Conference",
+        navAbout: "About", navPapers: "Papers",
         aboutMe: "About Me",
         introText: "Hello, I am Sohyeon Jang.\nI am pursuing an M.S. degree in the Department of Artificial Intelligence Convergence at Myongji University, advised by Prof. Hyunhee Park in DAN Lab. I am currently in my third semester and expect to graduate in February 2027.",
         photoPlaceholder: "Profile photo area\nReplace with your own photo",
@@ -382,14 +329,11 @@
         paper3TitleKo: "비지도 도메인 적응 기반 위장 객체 분류",
         paper3TitleEn: "Unsupervised Domain Adaptation for Camouflaged Object Classification",
         paper3Venue: "KICS Winter Conference, 2026.02",
-        paper3Text: "To address the label scarcity problem in camouflaged object classification, this study proposes a teacher-student unsupervised domain adaptation framework that transfers knowledge learned from label-rich general object datasets, including LVIS, to unlabeled camouflaged object data from COD10K.",
-        conferenceTitle: "Conference", conferenceIntro: "This page will collect photos and short notes from academic presentations, conferences, and research events.",
-        confPhoto1: "Presentation photo\ncoming soon", confPhoto2: "Conference moment\ncoming soon", confPhoto3: "Lab & research\ncoming soon",
-        conf1Title: "JCCI 2026", conf1Text: "Presentation and discussion on camouflaged object classification.", conf2Title: "Research Presentation", conf2Text: "A place for presentation photos, poster sessions, and academic memories.", conf3Title: "Research Activities", conf3Text: "Photos from lab activities, seminars, and collaborative research events."
+        paper3Text: "To address the label scarcity problem in camouflaged object classification, this study proposes a teacher-student unsupervised domain adaptation framework that transfers knowledge learned from label-rich general object datasets, including LVIS, to unlabeled camouflaged object data from COD10K."
       },
       ko: {
         brandName: "장소현",
-        navAbout: "소개", navPapers: "논문", navConference: "학회",
+        navAbout: "소개", navPapers: "논문",
         aboutMe: "About Me",
         introText: "안녕하세요 장소현입니다.\n저는 명지대학교 인공지능융합학과 DAN Lab에서 박현희 교수님의 지도 아래 석사과정을 진행하고 있습니다. 현재 3학기차이며 2027년 2월 졸업을 예정하고 있습니다.",
         photoPlaceholder: "프로필 사진 영역\n나중에 본인 사진으로 교체",
@@ -408,10 +352,7 @@
         paper3TitleKo: "비지도 도메인 적응 기반 위장 객체 분류",
         paper3TitleEn: "Unsupervised Domain Adaptation for Camouflaged Object Classification",
         paper3Venue: "한국통신학회 동계종합학술발표대회, 2026.02",
-        paper3Text: "위장 객체 분류의 레이블 부족 문제를 해결하기 위해, 레이블이 풍부한 일반 객체 데이터셋(LVIS 등)으로 학습한 지식을 레이블이 없는 위장 객체 데이터셋(COD10K)으로 전이하는 교사-학생 기반 비지도 도메인 적응 프레임워크를 제안합니다.",
-        conferenceTitle: "Conference", conferenceIntro: "학회 발표, 연구 행사, 발표 사진과 짧은 기록을 모아두는 공간입니다.",
-        confPhoto1: "발표 사진\n준비 중", confPhoto2: "학회 순간\n준비 중", confPhoto3: "연구 활동\n준비 중",
-        conf1Title: "JCCI 2026", conf1Text: "위장 객체 분류 연구에 대한 발표와 논의 기록을 올릴 공간입니다.", conf2Title: "연구 발표", conf2Text: "발표 사진, 포스터 세션, 학회에서의 기억을 기록하는 공간입니다.", conf3Title: "연구 활동", conf3Text: "연구실 활동, 세미나, 공동 연구 관련 사진을 올릴 공간입니다."
+        paper3Text: "위장 객체 분류의 레이블 부족 문제를 해결하기 위해, 레이블이 풍부한 일반 객체 데이터셋(LVIS 등)으로 학습한 지식을 레이블이 없는 위장 객체 데이터셋(COD10K)으로 전이하는 교사-학생 기반 비지도 도메인 적응 프레임워크를 제안합니다."
       }
     };
 
