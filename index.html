@@ -164,28 +164,6 @@
       white-space: pre-line;
     }
 
-    .profile-list {
-      display: grid;
-      gap: 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-
-    .profile-list li {
-      display: grid;
-      grid-template-columns: 120px minmax(0, 1fr);
-      gap: 14px;
-      align-items: baseline;
-      font-size: 0.98rem;
-    }
-
-    .profile-list strong { font-weight: 850; color: var(--text); }
-    .profile-list span,
-    .profile-list a { color: var(--muted); }
-    .profile-list a { border-bottom: 1px solid rgba(35, 79, 30, 0.35); }
-    .profile-list a:hover { color: var(--pine); border-bottom-color: var(--pine); }
-
     .interests-line {
       max-width: 760px;
       margin: 0 0 18px;
@@ -278,7 +256,6 @@
       .hero { grid-template-columns: 1fr; gap: 32px; padding-top: 48px; }
       .photo-panel { max-width: 260px; }
       .grid-3 { grid-template-columns: 1fr; }
-      .profile-list li { grid-template-columns: 96px minmax(0, 1fr); }
     }
   </style>
 </head>
@@ -310,16 +287,12 @@
         <div class="content-block">
           <h2 class="section-label" data-i18n="aboutMe">About Me</h2>
           <p class="intro-text" data-i18n="introText">Hello, I am Sohyeon Jang.\nI am pursuing an M.S. degree in the Department of Artificial Intelligence Convergence at Myongji University, advised by Prof. Hyunhee Park in DAN Lab. I am currently in my third semester and expect to graduate in February 2027.</p>
-
-          <ul class="profile-list">
-            <li><strong data-i18n="labelLab">Lab:</strong><span><a href="https://danlab.mju.ac.kr/" target="_blank" rel="noreferrer" data-i18n="labLink">DAN Lab Website</a></span></li>
-          </ul>
         </div>
 
         <div class="content-block" id="research">
           <h2 class="section-label" data-i18n="researchTitle">Research Interests</h2>
-          <p class="interests-line"><strong data-i18n="interestLabel">Interests:</strong> <span data-i18n="interestList">Camouflaged Object Detection (COD), Elusive Object Detection (EOD), Explainable AI (XAI)</span></p>
-          <p class="research-text" data-i18n="researchIntro">I am interested in identifying why research progress becomes limited and in defining problems more clearly.\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze why AI models miss specific objects by examining data characteristics, data distributions, and the way models interpret data. Through this process, I aim to understand the structural causes of detection failure.\nBased on these insights, I study experimental designs, difficulty analysis criteria, and data construction strategies that can reveal the problem more clearly.</p>
+          <p class="interests-line"><strong data-i18n="interestLabel">Interests:</strong> <span data-i18n="interestList">Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI), Dataset Analysis</span></p>
+          <p class="research-text" data-i18n="researchIntro">I am interested in identifying why research progress becomes limited and in defining problems more clearly.\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze the structural causes of detection failure by examining data characteristics and how models interpret data.\nBased on this, I aim to contribute to better dataset construction and detection model improvement.</p>
         </div>
       </div>
     </div>
@@ -376,11 +349,10 @@
         navAbout: "About", navPapers: "Papers", navConference: "Conference",
         aboutMe: "About Me",
         introText: "Hello, I am Sohyeon Jang.\nI am pursuing an M.S. degree in the Department of Artificial Intelligence Convergence at Myongji University, advised by Prof. Hyunhee Park in DAN Lab. I am currently in my third semester and expect to graduate in February 2027.",
-        labelLab: "Lab:", labLink: "DAN Lab Website",
         photoPlaceholder: "Profile photo area\nReplace with your own photo",
         researchTitle: "Research Interests",
-        interestLabel: "Interests:", interestList: "Camouflaged Object Detection (COD), Elusive Object Detection (EOD), Explainable AI (XAI)",
-        researchIntro: "I am interested in identifying why research progress becomes limited and in defining problems more clearly.\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze why AI models miss specific objects by examining data characteristics, data distributions, and the way models interpret data. Through this process, I aim to understand the structural causes of detection failure.\nBased on these insights, I study experimental designs, difficulty analysis criteria, and data construction strategies that can reveal the problem more clearly.",
+        interestLabel: "Interests:", interestList: "Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI), Dataset Analysis",
+        researchIntro: "I am interested in identifying why research progress becomes limited and in defining problems more clearly.\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze the structural causes of detection failure by examining data characteristics and how models interpret data.\nBased on this, I aim to contribute to better dataset construction and detection model improvement.",
         papersTitle: "Papers", papersIntro: "My current work investigates camouflaged objects from three connected perspectives: domain adaptation, background context, and learning bias.",
         paper1Title: "Unsupervised Domain Adaptation for Camouflaged Object Classification", paper1Text: "A teacher-student domain adaptation framework for classifying camouflaged objects using labeled non-camouflaged source data and unlabeled camouflaged target data.",
         paper2Title: "Analysis of Camouflaged Object Classification Performance According to Input Image Background Ratio", paper2Text: "An experimental analysis of how the background ratio in input images affects camouflaged object classification performance with ResNet-50 and Swin-Tiny.",
@@ -395,11 +367,10 @@
         navAbout: "소개", navPapers: "논문", navConference: "학회",
         aboutMe: "About Me",
         introText: "안녕하세요 장소현입니다.\n저는 명지대학교 인공지능융합학과 DAN Lab에서 박현희 교수님의 지도 아래 석사과정을 진행하고 있습니다. 현재 3학기차이며 2027년 2월 졸업을 예정하고 있습니다.",
-        labelLab: "연구실:", labLink: "DAN Lab 홈페이지",
         photoPlaceholder: "프로필 사진 영역\n나중에 본인 사진으로 교체",
         researchTitle: "Research Interests",
-        interestLabel: "관심 분야:", interestList: "Camouflaged Object Detection (COD), Elusive Object Detection (EOD), Explainable AI (XAI)",
-        researchIntro: "저는 연구가 정체되는 지점에서 원인을 찾고 문제를 더 명확하게 정의하는 과정에 흥미를 느낍니다.\n현재는 배경과 시각적으로 유사하여 탐지하기 어려운 객체를 대상으로 AI 모델이 왜 특정 객체를 놓치는지 분석하고 있습니다. 데이터의 특성과 분포, 모델이 데이터를 해석하는 방식을 함께 살펴보며 탐지 실패가 발생하는 구조적 원인을 이해하고자 합니다.\n이를 바탕으로 문제를 더 선명하게 드러낼 수 있는 실험 설계, 난이도 분석 기준, 데이터 구성 방법을 연구하고 있습니다.",
+        interestLabel: "관심 분야:", interestList: "Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI), Dataset Analysis",
+        researchIntro: "저는 연구가 정체되는 원인을 찾고, 문제를 명확하게 정의하는 과정에 흥미를 느낍니다.\n현재는 배경과 유사해 탐지하기 어려운 객체를 대상으로 데이터 특성과 모델의 해석 방식을 진단하며 탐지 실패의 구조적 원인을 분석하고 있습니다.\n이를 바탕으로 데이터 구성 방법과 탐지 모델 개선에 기여하고자 합니다.",
         papersTitle: "Papers", papersIntro: "현재 연구는 도메인 적응, 배경 문맥, 학습 편향이라는 세 관점에서 위장 객체를 분석합니다.",
         paper1Title: "비지도 도메인 적응 기반 위장 객체 분류", paper1Text: "레이블이 있는 비위장 객체 데이터를 소스 도메인으로, 레이블이 없는 위장 객체 데이터를 타깃 도메인으로 활용하는 교사-학생 기반 도메인 적응 프레임워크입니다.",
         paper2Title: "입력 이미지 배경 비율에 따른 위장 객체 분류 성능 분석", paper2Text: "ResNet-50과 Swin-Tiny를 활용하여 입력 이미지의 배경 비율이 위장 객체 분류 성능에 미치는 영향을 실험적으로 분석했습니다.",
