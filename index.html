@@ -28,7 +28,6 @@
     }
 
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
     .container { width: min(1080px, calc(100% - 44px)); margin: 0 auto; }
 
     header {
@@ -52,7 +51,7 @@
       font-size: 1.12rem;
       font-weight: 900;
       letter-spacing: -0.04em;
-      color: var(--pine);
+      color: #000;
       white-space: nowrap;
     }
 
@@ -134,15 +133,23 @@
     .hero-text { max-width: 660px; }
 
     .section-label {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       margin: 0 0 28px;
-      padding-bottom: 8px;
-      border-bottom: 3px solid var(--pine);
       font-size: 1.25rem;
       line-height: 1.2;
       letter-spacing: -0.035em;
       font-weight: 850;
       color: var(--text);
+    }
+
+    .section-label::before {
+      content: "";
+      width: 28px;
+      height: 3px;
+      background: var(--pine);
+      border-radius: 999px;
     }
 
     .intro-name {
@@ -170,7 +177,7 @@
     .profile-list {
       display: grid;
       gap: 12px;
-      margin: 0 0 28px;
+      margin: 0;
       padding: 0;
       list-style: none;
     }
@@ -185,26 +192,6 @@
 
     .profile-list strong { font-weight: 850; color: var(--text); }
     .profile-list span { color: var(--muted); }
-
-    .button-row { display: flex; flex-wrap: wrap; gap: 12px; }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 44px;
-      padding: 0 18px;
-      border-radius: 999px;
-      border: 1px solid var(--pine);
-      color: var(--pine);
-      background: #fff;
-      font-size: 0.92rem;
-      font-weight: 850;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .button.primary { background: var(--pine); color: #fff; }
-    .button:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
 
     section {
       padding: 58px 0;
@@ -320,7 +307,7 @@
 <body>
   <header>
     <div class="container nav">
-      <a href="#about" class="brand">Sohyeon Jang</a>
+      <a href="#about" class="brand" data-i18n="brandName">Sohyeon Jang</a>
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#about" class="active" data-i18n="navAbout">About</a>
         <a href="#papers" data-i18n="navPapers">Papers</a>
@@ -343,21 +330,14 @@
 
       <div class="hero-text">
         <h2 class="section-label" data-i18n="aboutMe">About Me</h2>
-        <h1 class="intro-name">Sohyeon Jang</h1>
+        <h1 class="intro-name" data-i18n="introName">Sohyeon Jang</h1>
         <p class="intro-role" data-i18n="introRole">M.S. Student · Applied Artificial Intelligence · Myongji University</p>
         <p class="intro-text" data-i18n="introText">I study how AI understands camouflaged objects that naturally blend into their surroundings. I am interested in making difficult visual AI problems easier to explain, evaluate, and improve.</p>
 
         <ul class="profile-list">
           <li><strong data-i18n="labelResearch">Research:</strong><span data-i18n="valueResearch">Camouflaged Object Detection & Classification</span></li>
           <li><strong data-i18n="labelLab">Lab:</strong><span data-i18n="valueLab">Myongji University</span></li>
-          <li><strong>Email:</strong><span>jangso6593@mju.ac.kr</span></li>
-          <li><strong>GitHub:</strong><span>Jang-Sohyeon</span></li>
         </ul>
-
-        <div class="button-row">
-          <a class="button primary" href="#papers" data-i18n="viewPapers">View Papers</a>
-          <a class="button" href="#conference" data-i18n="viewConference">Conference</a>
-        </div>
       </div>
     </div>
 
@@ -433,6 +413,8 @@
   <script>
     const translations = {
       en: {
+        brandName: "Sohyeon Jang",
+        introName: "Sohyeon Jang",
         navAbout: "About", navPapers: "Papers", navConference: "Conference",
         aboutMe: "About Me",
         introRole: "M.S. Student · Applied Artificial Intelligence · Myongji University",
@@ -440,7 +422,6 @@
         labelResearch: "Research:", valueResearch: "Camouflaged Object Detection & Classification",
         labelLab: "Lab:", valueLab: "Myongji University",
         photoPlaceholder: "Profile photo area\nReplace with your own photo",
-        viewPapers: "View Papers", viewConference: "Conference",
         researchTitle: "Research Interests",
         researchIntro: "My research focuses on understanding why visual AI models struggle with camouflaged objects and how to evaluate their behavior more clearly.",
         aboutCard1Title: "Camouflaged Object Understanding", aboutCard1Text: "I work on visual recognition problems where the object and background are highly similar.",
@@ -456,6 +437,8 @@
         conf1Title: "JCCI 2026", conf1Text: "Presentation and discussion on camouflaged object classification.", conf2Title: "Research Presentation", conf2Text: "A place for presentation photos, poster sessions, and academic memories.", conf3Title: "Research Activities", conf3Text: "Photos from lab activities, seminars, and collaborative research events."
       },
       ko: {
+        brandName: "장소현",
+        introName: "장소현",
         navAbout: "소개", navPapers: "논문", navConference: "학회",
         aboutMe: "About Me",
         introRole: "석사과정 · 인공지능융합학과 · 명지대학교",
@@ -463,7 +446,6 @@
         labelResearch: "연구:", valueResearch: "위장 객체 탐지 및 분류",
         labelLab: "소속:", valueLab: "명지대학교",
         photoPlaceholder: "프로필 사진 영역\n나중에 본인 사진으로 교체",
-        viewPapers: "논문 보기", viewConference: "학회",
         researchTitle: "Research Interests",
         researchIntro: "제 연구는 시각 AI 모델이 위장 객체를 어려워하는 이유를 이해하고, 그 동작을 더 명확하게 평가하는 데 초점을 둡니다.",
         aboutCard1Title: "위장 객체 이해", aboutCard1Text: "객체와 배경이 매우 유사한 시각 인식 문제를 연구합니다.",
