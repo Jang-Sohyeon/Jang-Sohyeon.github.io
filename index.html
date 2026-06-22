@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sohyeon Jang</title>
+  <style>
+    :root {
+      --bg: #fffaf3;
+      --card: #ffffff;
+      --text: #222222;
+      --muted: #666666;
+      --line: #eadfce;
+      --orange: #f97316;
+      --green: #3f7d45;
+      --green-soft: #edf6ec;
+      --orange-soft: #fff1e7;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(180deg, #fffdf9 0%, var(--bg) 48%, #ffffff 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 250, 243, 0.88);
+      border-bottom: 1px solid rgba(234, 223, 206, 0.85);
+    }
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { font-weight: 850; letter-spacing: -0.03em; white-space: nowrap; }
+    .brand .green { color: var(--green); }
+    .brand .orange { color: var(--orange); }
+    .nav-links { display: flex; align-items: center; gap: 24px; font-size: 0.92rem; font-weight: 750; }
+    .nav-links a { padding: 8px 0; border-bottom: 2px solid transparent; }
+    .nav-links a:hover { border-bottom-color: var(--orange); }
+    .lang-toggle {
+      display: inline-flex;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: white;
+      padding: 5px;
+      gap: 4px;
+    }
+    .lang-toggle button {
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      padding: 7px 11px;
+      font-weight: 800;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .lang-toggle button.active { background: var(--orange); color: white; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 58px;
+      align-items: center;
+      padding: 76px 0 64px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      color: var(--green);
+      font-weight: 850;
+    }
+    .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--green); }
+    h1 {
+      margin: 0 0 24px;
+      font-size: clamp(2.8rem, 7vw, 5.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.075em;
+    }
+    h1 .green { color: var(--green); }
+    h1 .orange { color: var(--orange); }
+    .lead {
+      max-width: 640px;
+      margin: 0 0 18px;
+      font-size: clamp(1.08rem, 2vw, 1.32rem);
+      font-weight: 650;
+      color: #303030;
+    }
+    .sublead { max-width: 650px; margin: 0; color: var(--muted); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 20px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: white;
+      font-weight: 850;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .button:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+    .button.primary { background: var(--orange); border-color: var(--orange); color: white; }
+    .photo-card {
+      position: relative;
+      aspect-ratio: 4 / 3.2;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background: linear-gradient(135deg, #fff1e7, #edf6ec);
+      box-shadow: var(--shadow);
+    }
+    .photo-placeholder {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 32px;
+      color: var(--green);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      white-space: pre-line;
+    }
+    .note-card {
+      position: absolute;
+      right: 20px;
+      bottom: 18px;
+      padding: 13px 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.92);
+      color: var(--green);
+      font-weight: 850;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+    }
+    .note-card strong { color: var(--orange); }
+    section { padding: 58px 0; border-top: 1px solid rgba(234, 223, 206, 0.9); }
+    .section-title {
+      margin: 0 0 14px;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.12;
+      letter-spacing: -0.045em;
+    }
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 36px;
+      height: 3px;
+      margin-top: 14px;
+      background: var(--orange);
+    }
+    .section-intro { max-width: 760px; margin: 0 0 30px; color: var(--muted); }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      background: rgba(255,255,255,0.84);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 12px 34px rgba(0,0,0,0.035);
+    }
+    .card h3 { margin: 0 0 10px; font-size: 1.05rem; line-height: 1.35; }
+    .card p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tag {
+      display: inline-flex;
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-size: 0.78rem;
+      font-weight: 850;
+    }
+    .tag.orange { background: var(--orange-soft); color: var(--orange); }
+    .paper-card { min-height: 360px; display: flex; flex-direction: column; }
+    .paper-meta { margin-bottom: 12px; color: var(--green); font-size: 0.88rem; font-weight: 850; }
+    .paper-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: auto; padding-top: 20px; }
+    .small-button {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: white;
+      font-size: 0.82rem;
+      font-weight: 850;
+    }
+    .small-button.disabled { color: #9a9a9a; background: #f8f5ef; }
+    .gallery-card { padding: 0; overflow: hidden; }
+    .gallery-placeholder {
+      min-height: 210px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(249, 115, 22, 0.18), transparent 30%),
+        radial-gradient(circle at 82% 28%, rgba(63, 125, 69, 0.18), transparent 32%),
+        linear-gradient(135deg, #fff7ec, #eef7ed);
+      color: var(--green);
+      font-weight: 900;
+      white-space: pre-line;
+    }
+    .gallery-body { padding: 22px; }
+    .quote-card {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      align-items: center;
+      gap: 28px;
+    }
+    blockquote {
+      margin: 0;
+      color: var(--green);
+      font-size: clamp(1.28rem, 3vw, 2rem);
+      line-height: 1.35;
+      letter-spacing: -0.045em;
+      font-weight: 850;
+    }
+    .contact-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .contact-pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: white;
+      padding: 10px 14px;
+      font-weight: 800;
+    }
+    footer { padding: 34px 0 50px; color: var(--muted); font-size: 0.9rem; }
+    @media (max-width: 860px) {
+      .nav { flex-wrap: wrap; padding: 16px 0; }
+      .nav-links { order: 3; width: 100%; justify-content: space-between; gap: 12px; overflow-x: auto; }
+      .hero, .quote-card { grid-template-columns: 1fr; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .hero { padding-top: 46px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a href="#about" class="brand"><span class="green">Sohyeon</span> <span class="orange">Jang</span></a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#papers" data-i18n="navPapers">Papers</a>
+        <a href="#conference" data-i18n="navConference">Conference</a>
+      </nav>
+      <div class="lang-toggle" aria-label="Language toggle">
+        <button type="button" class="active" data-lang="en">EN</button>
+        <button type="button" data-lang="ko">KR</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container hero" id="about">
+      <div>
+        <div class="eyebrow" data-i18n="eyebrow">M.S. Student · Computer Vision</div>
+        <h1><span data-i18n="heroLine1">Camouflaged</span><br><span class="green" data-i18n="heroLine2">Object</span> <span class="orange" data-i18n="heroLine3">Understanding</span></h1>
+        <p class="lead" data-i18n="heroLead">Hi, I'm Sohyeon Jang. I study how AI understands objects that blend into their surroundings.</p>
+        <p class="sublead" data-i18n="heroSublead">My research focuses on camouflaged object classification, detection, learning bias analysis, and evaluation methods for visual AI systems.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#papers" data-i18n="viewPapers">View Papers</a>
+          <a class="button" href="#conference" data-i18n="viewConference">Conference Photos</a>
+        </div>
+      </div>
+      <div class="photo-card">
+        <div class="photo-placeholder" data-i18n="photoPlaceholder">Profile photo area\nReplace with your own photo</div>
+        <div class="note-card"><span data-i18n="noteText">clear, warm, and</span> <strong data-i18n="noteStrong">research-focused</strong></div>
+      </div>
+    </div>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title" data-i18n="aboutTitle">About</h2>
+        <p class="section-intro" data-i18n="aboutIntro">I am a master's student in Applied Artificial Intelligence at Myongji University. I enjoy explaining complex visual AI ideas in a clear and approachable way, while deeply exploring how models perceive difficult visual patterns.</p>
+        <div class="grid-3">
+          <article class="card">
+            <h3 data-i18n="aboutCard1Title">Research Identity</h3>
+            <p data-i18n="aboutCard1Text">I work on camouflaged objects, where the object and background are visually similar and difficult for AI models to separate.</p>
+            <div class="tag-row"><span class="tag">COD</span><span class="tag orange">Vision AI</span></div>
+          </article>
+          <article class="card">
+            <h3 data-i18n="aboutCard2Title">Research Interests</h3>
+            <p data-i18n="aboutCard2Text">Camouflaged object detection, classification, background context analysis, learning bias, and evaluation metrics.</p>
+            <div class="tag-row"><span class="tag">Classification</span><span class="tag">Detection</span><span class="tag orange">Evaluation</span></div>
+          </article>
+          <article class="card">
+            <h3 data-i18n="aboutCard3Title">Style</h3>
+            <p data-i18n="aboutCard3Text">I like simple, readable, and focused communication: one clear topic at a time, with friendly explanations and solid technical depth.</p>
+            <div class="tag-row"><span class="tag">Clear</span><span class="tag orange">Warm</span><span class="tag">Focused</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="papers">
+      <div class="container">
+        <h2 class="section-title" data-i18n="papersTitle">Papers</h2>
+        <p class="section-intro" data-i18n="papersIntro">My current work investigates camouflaged objects from three connected perspectives: domain adaptation, background context, and learning bias.</p>
+        <div class="grid-3">
+          <article class="card paper-card">
+            <div class="paper-meta">2026 · Camouflaged Object Classification</div>
+            <h3 data-i18n="paper1Title">Unsupervised Domain Adaptation for Camouflaged Object Classification</h3>
+            <p data-i18n="paper1Text">A teacher-student domain adaptation framework for classifying camouflaged objects using labeled non-camouflaged source data and unlabeled camouflaged target data.</p>
+            <div class="tag-row"><span class="tag">UDA</span><span class="tag">FixMatch</span><span class="tag orange">PEFT</span></div>
+            <div class="paper-actions"><span class="small-button disabled" data-i18n="pdfComing">PDF coming soon</span><span class="small-button disabled" data-i18n="codeComing">Code coming soon</span></div>
+          </article>
+          <article class="card paper-card">
+            <div class="paper-meta">2026 · Background Context</div>
+            <h3 data-i18n="paper2Title">Analysis of Camouflaged Object Classification Performance According to Input Image Background Ratio</h3>
+            <p data-i18n="paper2Text">An experimental analysis of how the background ratio in input images affects camouflaged object classification performance with ResNet-50 and Swin-Tiny.</p>
+            <div class="tag-row"><span class="tag">Background Ratio</span><span class="tag">ResNet-50</span><span class="tag orange">Swin-Tiny</span></div>
+            <div class="paper-actions"><span class="small-button disabled" data-i18n="pdfComing2">PDF coming soon</span><span class="small-button disabled" data-i18n="codeComing2">Code coming soon</span></div>
+          </article>
+          <article class="card paper-card">
+            <div class="paper-meta">2026 · Learning Bias Analysis</div>
+            <h3 data-i18n="paper3Title">Learning Bias Analysis in Camouflaged Object Detection via Feature Confusion and Attention Bias</h3>
+            <p data-i18n="paper3Text">A quantitative analysis of feature confusion and attention bias in camouflaged object learning, focusing on how background attention affects generalization.</p>
+            <div class="tag-row"><span class="tag">Grad-CAM</span><span class="tag">Bias</span><span class="tag orange">IoU</span></div>
+            <div class="paper-actions"><span class="small-button disabled" data-i18n="pdfComing3">PDF coming soon</span><span class="small-button disabled" data-i18n="codeComing3">Code coming soon</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="conference">
+      <div class="container">
+        <h2 class="section-title" data-i18n="conferenceTitle">Conference</h2>
+        <p class="section-intro" data-i18n="conferenceIntro">This page will collect photos and short notes from academic presentations, conferences, and research events.</p>
+        <div class="grid-3">
+          <article class="card gallery-card"><div class="gallery-placeholder" data-i18n="confPhoto1">Presentation photo\ncoming soon</div><div class="gallery-body"><h3 data-i18n="conf1Title">JCCI 2026</h3><p data-i18n="conf1Text">Presentation and discussion on camouflaged object classification.</p></div></article>
+          <article class="card gallery-card"><div class="gallery-placeholder" data-i18n="confPhoto2">Conference moment\ncoming soon</div><div class="gallery-body"><h3 data-i18n="conf2Title">Research Presentation</h3><p data-i18n="conf2Text">A place for presentation photos, poster sessions, and academic memories.</p></div></article>
+          <article class="card gallery-card"><div class="gallery-placeholder" data-i18n="confPhoto3">Lab & research\ncoming soon</div><div class="gallery-body"><h3 data-i18n="conf3Title">Research Activities</h3><p data-i18n="conf3Text">Photos from lab activities, seminars, and collaborative research events.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container quote-card card">
+        <div>
+          <h2 class="section-title" data-i18n="contactTitle">Contact</h2>
+          <p class="section-intro" data-i18n="contactIntro">Feel free to reach out for research discussions or collaboration.</p>
+          <div class="contact-row"><a class="contact-pill" href="mailto:jangso6593@mju.ac.kr">jangso6593@mju.ac.kr</a><a class="contact-pill" href="https://github.com/Jang-Sohyeon" target="_blank" rel="noreferrer">GitHub</a></div>
+        </div>
+        <blockquote data-i18n="quote">I like making difficult visual AI problems easier to understand.</blockquote>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container">© <span id="year"></span> Sohyeon Jang. Built with GitHub Pages.</div></footer>
+
+  <script>
+    const translations = {
+      en: {
+        navAbout: "About", navPapers: "Papers", navConference: "Conference",
+        eyebrow: "M.S. Student · Computer Vision", heroLine1: "Camouflaged", heroLine2: "Object", heroLine3: "Understanding",
+        heroLead: "Hi, I'm Sohyeon Jang. I study how AI understands objects that blend into their surroundings.",
+        heroSublead: "My research focuses on camouflaged object classification, detection, learning bias analysis, and evaluation methods for visual AI systems.",
+        viewPapers: "View Papers", viewConference: "Conference Photos", photoPlaceholder: "Profile photo area\nReplace with your own photo", noteText: "clear, warm, and", noteStrong: "research-focused",
+        aboutTitle: "About", aboutIntro: "I am a master's student in Applied Artificial Intelligence at Myongji University. I enjoy explaining complex visual AI ideas in a clear and approachable way, while deeply exploring how models perceive difficult visual patterns.",
+        aboutCard1Title: "Research Identity", aboutCard1Text: "I work on camouflaged objects, where the object and background are visually similar and difficult for AI models to separate.",
+        aboutCard2Title: "Research Interests", aboutCard2Text: "Camouflaged object detection, classification, background context analysis, learning bias, and evaluation metrics.",
+        aboutCard3Title: "Style", aboutCard3Text: "I like simple, readable, and focused communication: one clear topic at a time, with friendly explanations and solid technical depth.",
+        papersTitle: "Papers", papersIntro: "My current work investigates camouflaged objects from three connected perspectives: domain adaptation, background context, and learning bias.",
+        paper1Title: "Unsupervised Domain Adaptation for Camouflaged Object Classification", paper1Text: "A teacher-student domain adaptation framework for classifying camouflaged objects using labeled non-camouflaged source data and unlabeled camouflaged target data.",
+        paper2Title: "Analysis of Camouflaged Object Classification Performance According to Input Image Background Ratio", paper2Text: "An experimental analysis of how the background ratio in input images affects camouflaged object classification performance with ResNet-50 and Swin-Tiny.",
+        paper3Title: "Learning Bias Analysis in Camouflaged Object Detection via Feature Confusion and Attention Bias", paper3Text: "A quantitative analysis of feature confusion and attention bias in camouflaged object learning, focusing on how background attention affects generalization.",
+        pdfComing: "PDF coming soon", codeComing: "Code coming soon", pdfComing2: "PDF coming soon", codeComing2: "Code coming soon", pdfComing3: "PDF coming soon", codeComing3: "Code coming soon",
+        conferenceTitle: "Conference", conferenceIntro: "This page will collect photos and short notes from academic presentations, conferences, and research events.",
+        confPhoto1: "Presentation photo\ncoming soon", confPhoto2: "Conference moment\ncoming soon", confPhoto3: "Lab & research\ncoming soon",
+        conf1Title: "JCCI 2026", conf1Text: "Presentation and discussion on camouflaged object classification.", conf2Title: "Research Presentation", conf2Text: "A place for presentation photos, poster sessions, and academic memories.", conf3Title: "Research Activities", conf3Text: "Photos from lab activities, seminars, and collaborative research events.",
+        contactTitle: "Contact", contactIntro: "Feel free to reach out for research discussions or collaboration.", quote: "I like making difficult visual AI problems easier to understand."
+      },
+      ko: {
+        navAbout: "소개", navPapers: "논문", navConference: "학회",
+        eyebrow: "석사과정 · 컴퓨터 비전", heroLine1: "위장", heroLine2: "객체", heroLine3: "이해",
+        heroLead: "안녕하세요, 장소현입니다. 저는 주변 환경과 잘 구분되지 않는 위장 객체를 AI가 어떻게 이해하는지 연구합니다.",
+        heroSublead: "주요 관심 분야는 위장 객체 분류, 탐지, 학습 편향 분석, 그리고 시각 AI 평가 방법입니다.",
+        viewPapers: "논문 보기", viewConference: "학회 사진 보기", photoPlaceholder: "프로필 사진 영역\n나중에 본인 사진으로 교체", noteText: "쉽고 따뜻하지만", noteStrong: "전문적으로",
+        aboutTitle: "소개", aboutIntro: "저는 명지대학교 인공지능융합학과 석사과정생입니다. 복잡한 시각 AI 개념을 누구나 이해하기 쉽게 설명하는 것을 좋아하며, 모델이 어려운 시각 패턴을 어떻게 인식하는지 깊게 탐구하고 있습니다.",
+        aboutCard1Title: "연구 정체성", aboutCard1Text: "저는 객체와 배경이 시각적으로 유사해 AI 모델이 구분하기 어려운 위장 객체 문제를 연구합니다.",
+        aboutCard2Title: "관심 분야", aboutCard2Text: "위장 객체 탐지, 위장 객체 분류, 배경 문맥 분석, 학습 편향, 평가 지표에 관심이 있습니다.",
+        aboutCard3Title: "성향", aboutCard3Text: "간결하고 읽기 쉬운 전달을 좋아합니다. 한 번에 하나의 주제를 명확하게 설명하되, 친근함과 기술적 깊이를 함께 담고 싶습니다.",
+        papersTitle: "논문", papersIntro: "현재 연구는 도메인 적응, 배경 문맥, 학습 편향이라는 세 관점에서 위장 객체를 분석합니다.",
+        paper1Title: "비지도 도메인 적응 기반 위장 객체 분류", paper1Text: "레이블이 있는 비위장 객체 데이터를 소스 도메인으로, 레이블이 없는 위장 객체 데이터를 타깃 도메인으로 활용하는 교사-학생 기반 도메인 적응 프레임워크입니다.",
+        paper2Title: "입력 이미지 배경 비율에 따른 위장 객체 분류 성능 분석", paper2Text: "ResNet-50과 Swin-Tiny를 활용하여 입력 이미지의 배경 비율이 위장 객체 분류 성능에 미치는 영향을 실험적으로 분석했습니다.",
+        paper3Title: "특징 혼동도와 시선 편향도 기반 위장 객체 학습 편향 분석", paper3Text: "특징 혼동도와 시선 편향도를 통해 위장 객체 학습에서 배경 주의가 일반화 성능에 미치는 영향을 정량적으로 분석했습니다.",
+        pdfComing: "PDF 준비 중", codeComing: "Code 준비 중", pdfComing2: "PDF 준비 중", codeComing2: "Code 준비 중", pdfComing3: "PDF 준비 중", codeComing3: "Code 준비 중",
+        conferenceTitle: "학회", conferenceIntro: "학회 발표, 연구 행사, 발표 사진과 짧은 기록을 모아두는 공간입니다.",
+        confPhoto1: "발표 사진\n준비 중", confPhoto2: "학회 순간\n준비 중", confPhoto3: "연구 활동\n준비 중",
+        conf1Title: "JCCI 2026", conf1Text: "위장 객체 분류 연구에 대한 발표와 논의 기록을 올릴 공간입니다.", conf2Title: "연구 발표", conf2Text: "발표 사진, 포스터 세션, 학회에서의 기억을 기록하는 공간입니다.", conf3Title: "연구 활동", conf3Text: "연구실 활동, 세미나, 공동 연구 관련 사진을 올릴 공간입니다.",
+        contactTitle: "연락처", contactIntro: "연구 논의나 협업 관련 연락을 환영합니다.", quote: "저는 어려운 시각 AI 문제를 쉽게 이해할 수 있도록 설명하는 것을 좋아합니다."
+      }
+    };
+    function setLanguage(lang) {
+      document.documentElement.lang = lang === "ko" ? "ko" : "en";
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.dataset.i18n;
+        if (translations[lang][key]) el.innerText = translations[lang][key];
+      });
+      document.querySelectorAll(".lang-toggle button").forEach((button) => button.classList.toggle("active", button.dataset.lang === lang));
+      localStorage.setItem("siteLanguage", lang);
+    }
+    document.querySelectorAll(".lang-toggle button").forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.lang)));
+    document.getElementById("year").innerText = new Date().getFullYear();
+    setLanguage(localStorage.getItem("siteLanguage") || "en");
+  </script>
+</body>
+</html>
