@@ -4,6 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sohyeon Jang</title>
+  <meta name="description" content="Sohyeon Jang — M.S. student researching camouflaged object detection, elusive object detection, XAI, and dataset analysis." />
+  <meta property="og:title" content="Sohyeon Jang" />
+  <meta property="og:description" content="Camouflaged Object Detection · Explainable AI · Dataset Analysis" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://jang-sohyeon.github.io/" />
+  <meta property="og:image" content="https://jang-sohyeon.github.io/assets/site-card.svg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Sohyeon Jang" />
+  <meta name="twitter:description" content="Camouflaged Object Detection · Explainable AI · Dataset Analysis" />
+  <meta name="twitter:image" content="https://jang-sohyeon.github.io/assets/site-card.svg" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <style>
     :root {
       --pine: #234F1E;
@@ -48,11 +59,27 @@
     }
 
     .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       font-size: 1.12rem;
       font-weight: 900;
       letter-spacing: -0.04em;
       color: #000;
       white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--pine);
+      color: #fff;
+      font-size: 0.84rem;
+      letter-spacing: -0.03em;
+      font-weight: 900;
     }
 
     .nav-links {
@@ -242,11 +269,13 @@
 <body>
   <header>
     <div class="container nav">
-      <a href="#about" class="brand" data-i18n="brandName">Sohyeon Jang</a>
+      <a href="#about" class="brand" aria-label="Sohyeon Jang home"><span class="brand-mark">SH</span><span>Sohyeon Jang</span></a>
+      <!-- Navigation links kept for future use.
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#about" class="active" data-i18n="navAbout">About</a>
         <a href="#papers" data-i18n="navPapers">Papers</a>
       </nav>
+      -->
       <div class="lang-toggle" aria-label="Language toggle">
         <button type="button" class="active" data-lang="en">EN</button>
         <button type="button" data-lang="ko">KR</button>
@@ -265,13 +294,13 @@
       <div class="hero-text">
         <div class="content-block">
           <h2 class="section-label" data-i18n="aboutMe">About Me</h2>
-          <p class="intro-text" data-i18n="introText">Hello, I am Sohyeon Jang.\nI am pursuing an M.S. degree in the Department of Artificial Intelligence Convergence at Myongji University, advised by Prof. Hyunhee Park in DAN Lab. I am currently in my third semester and expect to graduate in February 2027.</p>
+          <p class="intro-text" data-i18n="introText">Hello, I am Sohyeon Jang.\nI am pursuing an M.S. degree in the Department of Artificial Intelligence Convergence at Myongji University, advised by Prof. Hyunhee Park in DAN Lab. I am currently in my second year and expect to graduate in February 2027.</p>
         </div>
 
         <div class="content-block" id="research">
           <h2 class="section-label" data-i18n="researchTitle">Research Interests</h2>
           <p class="interests-line"><strong data-i18n="interestLabel">Interests:</strong> <span data-i18n="interestList">Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI), Dataset Analysis</span></p>
-          <p class="research-text" data-i18n="researchIntro">I am interested in identifying why research progress becomes limited and in defining problems more clearly.\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze the structural causes of detection failure by examining data characteristics and how models interpret data.\nBased on this, I aim to contribute to better dataset construction and detection model improvement.</p>
+          <p class="research-text" data-i18n="researchIntro">I am interested in identifying why research progress stagnates and in defining problems more clearly.\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze the structural causes of detection failure by examining data characteristics and how models interpret data.\nBased on this, I aim to contribute to improved dataset construction methods and detection model development.</p>
         </div>
       </div>
     </div>
@@ -313,13 +342,12 @@
   <script>
     const translations = {
       en: {
-        brandName: "Sohyeon Jang",
         navAbout: "About", navPapers: "Papers",
         aboutMe: "About Me",
-        introText: "Hello, I am Sohyeon Jang.\nI am pursuing an M.S. degree in the Department of Artificial Intelligence Convergence at Myongji University, advised by Prof. Hyunhee Park in DAN Lab. I am currently in my third semester and expect to graduate in February 2027.",
+        introText: "Hello, I am Sohyeon Jang.\nI am pursuing an M.S. degree in the Department of Artificial Intelligence Convergence at Myongji University, advised by Prof. Hyunhee Park in DAN Lab. I am currently in my second year and expect to graduate in February 2027.",
         researchTitle: "Research Interests",
         interestLabel: "Interests:", interestList: "Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI), Dataset Analysis",
-        researchIntro: "I am interested in identifying why research progress becomes limited and in defining problems more clearly.\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze the structural causes of detection failure by examining data characteristics and how models interpret data.\nBased on this, I aim to contribute to better dataset construction and detection model improvement.",
+        researchIntro: "I am interested in identifying why research progress stagnates and in defining problems more clearly.\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze the structural causes of detection failure by examining data characteristics and how models interpret data.\nBased on this, I aim to contribute to improved dataset construction methods and detection model development.",
         papersTitle: "Papers",
         paper1TitleKo: "Learning Bias Analysis in Camouflaged Object Detection via Feature Confusion and Attention Bias",
         paper1TitleEn: "특징 혼동도와 시선 편향도 기반 위장 객체 학습 편향 분석",
@@ -328,14 +356,13 @@
         paper2TitleKo: "Analysis of Camouflaged Object Classification Performance According to Input Image Background Ratio",
         paper2TitleEn: "입력 이미지 배경 비율에 따른 위장 객체 분류 성능 분석",
         paper2Venue: "JCCI, 2026.04",
-        paper2Text: "I initially expected that removing background information would help the model learn objects more clearly and improve performance, but observed that performance decreased compared to using original images. This suggests that background information can serve as an important cue in camouflaged object learning. This study experimentally analyzes how the background ratio in input images affects classification performance.",
+        paper2Text: "While removing background was expected to help models focus on object features and improve performance, it instead led to a decrease compared to training on original images. This suggests that background information serves as an important cue in camouflaged object learning. This study experimentally analyzes how the background ratio in input images affects classification performance.",
         paper3TitleKo: "Unsupervised Domain Adaptation for Camouflaged Object Classification",
         paper3TitleEn: "비지도 도메인 적응 기반 위장 객체 분류",
         paper3Venue: "KICS Winter Conference, 2026.02",
         paper3Text: "To address the label scarcity problem in camouflaged object classification, this study proposes a teacher-student unsupervised domain adaptation framework that transfers knowledge learned from label-rich general object datasets, including LVIS, to unlabeled camouflaged object data from COD10K."
       },
       ko: {
-        brandName: "장소현",
         navAbout: "소개", navPapers: "논문",
         aboutMe: "About Me",
         introText: "안녕하세요 장소현입니다.\n저는 명지대학교 인공지능융합학과 DAN Lab에서 박현희 교수님의 지도 아래 석사과정을 진행하고 있습니다. 현재 3학기차이며 2027년 2월 졸업을 예정하고 있습니다.",
@@ -366,34 +393,9 @@
       });
       document.querySelectorAll(".lang-toggle button").forEach((button) => button.classList.toggle("active", button.dataset.lang === lang));
       localStorage.setItem("siteLanguage", lang);
-      updateActiveNav();
-    }
-
-    function updateActiveNav() {
-      const links = document.querySelectorAll(".nav-links a");
-      const sections = Array.from(links).map((link) => {
-        const id = link.getAttribute("href").replace("#", "");
-        return { id, link, section: document.getElementById(id) };
-      }).filter((item) => item.section);
-
-      let activeId = sections[0]?.id;
-      const scrollPosition = window.scrollY + 110;
-
-      sections.forEach((item) => {
-        if (item.section.offsetTop <= scrollPosition) {
-          activeId = item.id;
-        }
-      });
-
-      sections.forEach((item) => {
-        item.link.classList.toggle("active", item.id === activeId);
-      });
     }
 
     document.querySelectorAll(".lang-toggle button").forEach((button) => button.addEventListener("click", () => setLanguage(button.dataset.lang)));
-    document.querySelectorAll(".nav-links a").forEach((link) => link.addEventListener("click", () => setTimeout(updateActiveNav, 350)));
-    window.addEventListener("scroll", updateActiveNav, { passive: true });
-    window.addEventListener("load", updateActiveNav);
     document.getElementById("year").innerText = new Date().getFullYear();
     setLanguage(localStorage.getItem("siteLanguage") || "en");
   </script>
