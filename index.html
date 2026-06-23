@@ -112,19 +112,11 @@
       box-shadow: var(--shadow);
     }
 
-    .photo-placeholder {
+    .photo-card img {
       width: 100%;
       height: 100%;
-      display: grid;
-      place-items: center;
-      padding: 28px;
-      text-align: center;
-      white-space: pre-line;
-      color: var(--pine);
-      font-weight: 800;
-      background:
-        radial-gradient(circle at 25% 20%, rgba(35, 79, 30, 0.10), transparent 30%),
-        linear-gradient(135deg, #f7faf4, #ffffff);
+      object-fit: cover;
+      display: block;
     }
 
     .hero-text { max-width: 800px; }
@@ -223,6 +215,15 @@
       line-height: 1.75;
     }
 
+    .paper-link {
+      display: inline-block;
+      margin-top: 12px;
+      color: var(--pine);
+      font-size: 0.9rem;
+      font-weight: 850;
+      border-bottom: 1px solid var(--pine);
+    }
+
     footer {
       padding: 34px 0 50px;
       color: var(--muted);
@@ -257,7 +258,7 @@
     <div class="container hero" id="about">
       <div class="photo-panel">
         <div class="photo-card">
-          <div class="photo-placeholder" data-i18n="photoPlaceholder">Profile photo area\nReplace with your own photo</div>
+          <img src="assets/3.5x4.5cm.jpg" alt="Sohyeon Jang profile photo">
         </div>
       </div>
 
@@ -284,6 +285,7 @@
             <p class="paper-title-en" data-i18n="paper1TitleEn">Learning Bias Analysis in Camouflaged Object Detection via Feature Confusion and Attention Bias</p>
             <p class="paper-venue" data-i18n="paper1Venue">한국통신학회 하계종합학술발표대회, 2026.06</p>
             <p class="paper-desc" data-i18n="paper1Text">위장 객체는 배경과 시각적으로 유사해 모델이 객체 고유의 특징보다 배경의 단서에 의존하는 학습 편향이 발생하기 쉽습니다. 본 연구에서는 이를 특징 혼동도와 시선 편향도 두 가지 지표로 정량화하고 학습 편향이 탐지 성능에 미치는 영향을 분석합니다.</p>
+            <a class="paper-link" href="assets/특징 혼동도와 시선 편향도 기반 위장 객체 학습 편향 분석.pdf" target="_blank" rel="noreferrer">PDF</a>
           </article>
 
           <article class="paper-item">
@@ -291,6 +293,7 @@
             <p class="paper-title-en" data-i18n="paper2TitleEn">Analysis of Camouflaged Object Classification Performance According to Input Image Background Ratio</p>
             <p class="paper-venue" data-i18n="paper2Venue">JCCI, 2026.04</p>
             <p class="paper-desc" data-i18n="paper2Text">배경을 제거한 이미지로 학습하면 객체를 더 명확하게 학습할 수 있어 성능이 향상될 것이라 예상했으나 오히려 원본 이미지보다 성능이 저하되는 현상을 관찰했습니다. 이는 위장 객체 학습 시 배경 정보가 중요한 단서로 활용됨을 시사하며 본 연구에서는 입력 이미지의 배경 비율이 분류 성능에 미치는 영향을 실험적으로 분석합니다.</p>
+            <a class="paper-link" href="assets/입력 이미지 배경 비율에 따른 위장 객체 분류 성능 분석.pdf" target="_blank" rel="noreferrer">PDF</a>
           </article>
 
           <article class="paper-item">
@@ -298,6 +301,7 @@
             <p class="paper-title-en" data-i18n="paper3TitleEn">Unsupervised Domain Adaptation for Camouflaged Object Classification</p>
             <p class="paper-venue" data-i18n="paper3Venue">한국통신학회 동계종합학술발표대회, 2026.02</p>
             <p class="paper-desc" data-i18n="paper3Text">위장 객체 분류의 레이블 부족 문제를 해결하기 위해, 레이블이 풍부한 일반 객체 데이터셋(LVIS 등)으로 학습한 지식을 레이블이 없는 위장 객체 데이터셋(COD10K)으로 전이하는 교사-학생 기반 비지도 도메인 적응 프레임워크를 제안합니다.</p>
+            <a class="paper-link" href="assets/비지도 도메인 적응 기반 위장 객체 분류.pdf" target="_blank" rel="noreferrer">PDF</a>
           </article>
         </div>
       </div>
@@ -313,7 +317,6 @@
         navAbout: "About", navPapers: "Papers",
         aboutMe: "About Me",
         introText: "Hello, I am Sohyeon Jang.\nI am pursuing an M.S. degree in the Department of Artificial Intelligence Convergence at Myongji University, advised by Prof. Hyunhee Park in DAN Lab. I am currently in my third semester and expect to graduate in February 2027.",
-        photoPlaceholder: "Profile photo area\nReplace with your own photo",
         researchTitle: "Research Interests",
         interestLabel: "Interests:", interestList: "Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI), Dataset Analysis",
         researchIntro: "I am interested in identifying why research progress becomes limited and in defining problems more clearly.\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze the structural causes of detection failure by examining data characteristics and how models interpret data.\nBased on this, I aim to contribute to better dataset construction and detection model improvement.",
@@ -336,7 +339,6 @@
         navAbout: "소개", navPapers: "논문",
         aboutMe: "About Me",
         introText: "안녕하세요 장소현입니다.\n저는 명지대학교 인공지능융합학과 DAN Lab에서 박현희 교수님의 지도 아래 석사과정을 진행하고 있습니다. 현재 3학기차이며 2027년 2월 졸업을 예정하고 있습니다.",
-        photoPlaceholder: "프로필 사진 영역\n나중에 본인 사진으로 교체",
         researchTitle: "Research Interests",
         interestLabel: "관심 분야:", interestList: "Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI), Dataset Analysis",
         researchIntro: "저는 연구가 정체되는 원인을 찾고 문제를 명확하게 정의하는 과정에 흥미를 느낍니다.\n현재는 배경과 유사해 탐지하기 어려운 객체를 대상으로 데이터 특성과 모델의 해석 방식을 진단하며 탐지 실패의 구조적 원인을 분석하고 있습니다.\n이를 바탕으로 데이터 구성 방법과 탐지 모델 개선에 기여하고자 합니다.",
