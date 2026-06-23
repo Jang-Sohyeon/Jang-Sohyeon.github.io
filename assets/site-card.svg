@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+<rect width="1200" height="630" fill="#fbfbf8"/>
+<rect x="60" y="60" width="1080" height="510" rx="40" fill="#ffffff" stroke="#e5e9df" stroke-width="2"/>
+<circle cx="250" cy="315" r="92" fill="#f2f5ef" stroke="#234F1E" stroke-width="8"/>
+<text x="250" y="342" text-anchor="middle" font-family="Arial" font-size="76" font-weight="700" fill="#234F1E">SH</text>
+<text x="400" y="292" font-family="Arial" font-size="74" font-weight="700" fill="#171717">Sohyeon Jang</text>
+<text x="402" y="354" font-family="Arial" font-size="30" font-weight="600" fill="#234F1E">Camouflaged Object Detection · XAI · Dataset Analysis</text>
+</svg>
