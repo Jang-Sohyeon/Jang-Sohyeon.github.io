@@ -299,7 +299,7 @@
 
         <div class="content-block" id="research">
           <h2 class="section-label" data-i18n="researchTitle">Research Interests</h2>
-          <p class="interests-line"><strong data-i18n="interestLabel">Interests:</strong> <span data-i18n="interestList">Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI), Dataset Analysis</span></p>
+          <p class="interests-line"><strong data-i18n="interestLabel">Interests:</strong> <span data-i18n="interestList">Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI)</span></p>
           <p class="research-text" data-i18n="researchIntro">I am interested in identifying why research progress stagnates and in defining problems more clearly.\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze the structural causes of detection failure by examining data characteristics and how models interpret data.\nBased on this, I aim to contribute to improved dataset construction methods and detection model development.</p>
         </div>
       </div>
@@ -309,6 +309,13 @@
       <div class="container">
         <h2 class="section-title" data-i18n="papersTitle">Papers</h2>
         <div class="paper-list">
+          <article class="paper-item">
+            <h3 class="paper-title-ko" data-i18n="paper0Title">Why Do Models Underperform on Elusive Objects?</h3>
+            <p class="paper-venue" data-i18n="paper0Venue">CSNet 2026</p>
+            <p class="paper-desc" data-i18n="paper0Text">We propose a diagnostic framework that categorizes samples into background-distracting (BD) and background-neutral (BN) groups based on prediction changes after suppressing background features. Experiments show that elusive-trained models consistently contain a higher proportion of BD samples than salient-trained models, while BD samples exhibit lower raw prediction performance than BN samples. Small objects and indefinable boundaries also show large background-suppression gains across backbones.</p>
+            <a class="paper-link" href="assets/Why Do Models Underperform on Elusive Objects.pdf" target="_blank" rel="noreferrer">PDF</a>
+          </article>
+
           <article class="paper-item">
             <h3 class="paper-title-ko" data-i18n="paper1TitleKo">특징 혼동도와 시선 편향도 기반 위장 객체 학습 편향 분석</h3>
             <p class="paper-title-en" data-i18n="paper1TitleEn">Learning Bias Analysis in Camouflaged Object Detection via Feature Confusion and Attention Bias</p>
@@ -346,9 +353,12 @@
         aboutMe: "About Me",
         introText: "Hello, I am Sohyeon Jang.\nI am pursuing an M.S. degree in the Department of Artificial Intelligence Convergence at Myongji University, advised by Prof. Hyunhee Park in DAN Lab. I am currently in my second year and expect to graduate in February 2027.",
         researchTitle: "Research Interests",
-        interestLabel: "Interests:", interestList: "Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI), Dataset Analysis",
+        interestLabel: "Interests:", interestList: "Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI)",
         researchIntro: "I am interested in identifying why research progress stagnates and in defining problems more clearly.\nCurrently, I focus on objects that are visually similar to their backgrounds and difficult to detect. I analyze the structural causes of detection failure by examining data characteristics and how models interpret data.\nBased on this, I aim to contribute to improved dataset construction methods and detection model development.",
         papersTitle: "Papers",
+        paper0Title: "Why Do Models Underperform on Elusive Objects?",
+        paper0Venue: "CSNet 2026",
+        paper0Text: "We propose a diagnostic framework that categorizes samples into background-distracting (BD) and background-neutral (BN) groups based on prediction changes after suppressing background features. Experiments show that elusive-trained models consistently contain a higher proportion of BD samples than salient-trained models, while BD samples exhibit lower raw prediction performance than BN samples. Small objects and indefinable boundaries also show large background-suppression gains across backbones.",
         paper1TitleKo: "Learning Bias Analysis in Camouflaged Object Detection via Feature Confusion and Attention Bias",
         paper1TitleEn: "특징 혼동도와 시선 편향도 기반 위장 객체 학습 편향 분석",
         paper1Venue: "KICS Summer Conference, 2026.06",
@@ -367,9 +377,12 @@
         aboutMe: "About Me",
         introText: "안녕하세요 장소현입니다.\n저는 명지대학교 인공지능융합학과 DAN Lab에서 박현희 교수님의 지도 아래 석사과정을 진행하고 있습니다. 현재 3학기차이며 2027년 2월 졸업을 예정하고 있습니다.",
         researchTitle: "Research Interests",
-        interestLabel: "관심 분야:", interestList: "Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI), Dataset Analysis",
+        interestLabel: "관심 분야:", interestList: "Camouflaged Object Detection, Elusive Object Detection, Explainable AI (XAI)",
         researchIntro: "저는 컴퓨터 비전 모델의 실패 원인을 구조적으로 분석하고 관찰된 현상을 측정 가능한 연구 문제로 구체화해 실질적인 개선으로 연결하는 연구자입니다.\n현재 위장 객체 탐지를 중심으로 데이터 특성, 모델의 내부 표현과 예측 반응을 함께 분석하며 데이터·학습 과정에서 형성된 편향이 탐지 실패에 미치는 영향을 구분해 진단하고 있습니다.\n이러한 진단을 바탕으로 데이터 편향과 모델의 취약성을 조기에 식별하고, 데이터 구성과 학습 전략을 개선하여 다양한 실제 환경에서도 안정적으로 동작하는 비전 시스템 개발에 기여하고자 합니다.",
         papersTitle: "Papers",
+        paper0Title: "Why Do Models Underperform on Elusive Objects?",
+        paper0Venue: "CSNet 2026",
+        paper0Text: "위장 객체 탐지 모델의 배경 의존 반응을 진단하기 위해 배경 특징 억제 전후의 예측 변화를 기반으로 샘플을 배경 방해(BD)와 배경 중립(BN) 그룹으로 구분하는 분석 프레임워크를 제안합니다. 실험 결과 위장 객체로 학습된 모델은 돌출 객체로 학습된 모델보다 BD 샘플 비율이 일관되게 높았으며 BD 샘플은 BN 샘플보다 낮은 원본 예측 성능을 보였습니다. 또한 작은 객체와 불명확한 경계에서는 백본에 관계없이 배경 억제에 따른 성능 향상이 크게 나타났습니다.",
         paper1TitleKo: "특징 혼동도와 시선 편향도 기반 위장 객체 학습 편향 분석",
         paper1TitleEn: "Learning Bias Analysis in Camouflaged Object Detection via Feature Confusion and Attention Bias",
         paper1Venue: "한국통신학회 하계종합학술발표대회, 2026.06",
